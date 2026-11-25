@@ -1,0 +1,1153 @@
+{
+  "skill": "php-zero-dep",
+  "skill_version": "0.0.1",
+  "org_model_version": "2.0",
+  "generated": "2026-11-25",
+  "language": "fa",
+  "constraints": {
+    "zero_composer": true,
+    "zero_dependency": true,
+    "php_baseline": "8.3",
+    "php_version_policy": "8.3 اگر نامشخص؛ 8.4/8.5 فقط با تأیید صریح؛ PHP 8.2 EOL در 2026-12-31",
+    "strict_types": true,
+    "prepared_statements_only": true,
+    "output_escaping": "htmlspecialchars(..., ENT_QUOTES, 'UTF-8')",
+    "session_cookie": {
+      "httponly": true,
+      "secure": true,
+      "samesite": "Strict"
+    },
+    "password_hash": "PASSWORD_ARGON2ID",
+    "csrf": "HMAC-signed token (hash_hmac sha256 + hash_equals)",
+    "security_headers": [
+      "Content-Security-Policy",
+      "Strict-Transport-Security",
+      "X-Content-Type-Options",
+      "X-Frame-Options",
+      "Referrer-Policy"
+    ],
+    "allowed_extensions": [
+      "ext-json",
+      "ext-pdo",
+      "ext-pdo_mysql",
+      "ext-pdo_pgsql",
+      "ext-pdo_sqlite",
+      "ext-mbstring",
+      "ext-curl",
+      "ext-openssl",
+      "ext-sodium",
+      "ext-session",
+      "ext-filter",
+      "ext-hash",
+      "ext-fileinfo",
+      "ext-gd (اختیاری)",
+      "ext-zip",
+      "ext-dom",
+      "ext-xml",
+      "ext-libxml",
+      "ext-simplexml",
+      "ext-redis (اگر از پیش نصب باشد)"
+    ],
+    "forbidden_functions": [
+      "eval()",
+      "exec()",
+      "shell_exec()",
+      "system()",
+      "passthru()",
+      "proc_open()",
+      "popen()"
+    ],
+    "forbidden_extensions": [
+      "ext-ffi",
+      "php-opencv و افزونه‌های غیرهسته"
+    ],
+    "no_hallucinated_api": true,
+    "context7_rule": "resolve-library-id → query-docs"
+  },
+  "org_model": {
+    "version": "2.0",
+    "hierarchy_levels": 5,
+    "total_roles": 79,
+    "total_atomic_tasks": 372,
+    "total_permissions": 42,
+    "workers_per_role": 1,
+    "worker_lifecycle": "per-atomic-task",
+    "profiles": {
+      "full": {
+        "phases": "F1-F10",
+        "max_concurrent_workers": null
+      },
+      "solo": {
+        "phases": "F1,F2,F4,F5,F6,F9,F10",
+        "max_concurrent_workers": 7
+      }
+    },
+    "worker_template": "scaffolds/workers/_template.md",
+    "council": {
+      "fixed_members": 6,
+      "variable_members": 4,
+      "security_veto": "absolute",
+      "release_signatures_required": 5
+    },
+    "consultation": {
+      "sla_hours": 24,
+      "critical_sla_hours": 4,
+      "mandatory_for_severity": [
+        "critical",
+        "high"
+      ]
+    },
+    "participation_phases": 10,
+    "separation_of_duties": true,
+    "atomic_tasks_required": true,
+    "dag_validation": true,
+    "roles": [
+      {
+        "id": "T-000",
+        "en": "Council Architect",
+        "fa": "معمار شورا",
+        "level": 0,
+        "level_name": "council",
+        "council_seat": null,
+        "atomic_tasks": 8,
+        "permissions": [
+          "read-all",
+          "approve-architecture",
+          "veto-architecture",
+          "approve-migration",
+          "approve-release"
+        ]
+      },
+      {
+        "id": "T-001",
+        "en": "Council Security",
+        "fa": "امنیت شورا",
+        "level": 0,
+        "level_name": "council",
+        "council_seat": null,
+        "atomic_tasks": 8,
+        "permissions": [
+          "read-all",
+          "approve-security",
+          "veto-security"
+        ]
+      },
+      {
+        "id": "T-002",
+        "en": "Council Quality",
+        "fa": "کیفیت شورا",
+        "level": 0,
+        "level_name": "council",
+        "council_seat": null,
+        "atomic_tasks": 7,
+        "permissions": [
+          "read-all",
+          "approve-quality",
+          "veto-quality"
+        ]
+      },
+      {
+        "id": "T-003",
+        "en": "Council Performance",
+        "fa": "عملکرد شورا",
+        "level": 0,
+        "level_name": "council",
+        "council_seat": null,
+        "atomic_tasks": 6,
+        "permissions": [
+          "read-all",
+          "approve-performance",
+          "veto-performance"
+        ]
+      },
+      {
+        "id": "T-004",
+        "en": "Council Compliance",
+        "fa": "انطباق شورا",
+        "level": 0,
+        "level_name": "council",
+        "council_seat": null,
+        "atomic_tasks": 6,
+        "permissions": [
+          "read-all",
+          "veto-compliance"
+        ]
+      },
+      {
+        "id": "T-005",
+        "en": "Release Manager",
+        "fa": "مدیر انتشار",
+        "level": 0,
+        "level_name": "council",
+        "council_seat": null,
+        "atomic_tasks": 8,
+        "permissions": [
+          "read-all",
+          "write-release",
+          "approve-release",
+          "exec-release"
+        ]
+      },
+      {
+        "id": "T-006",
+        "en": "Council Database Seat",
+        "fa": "کرسی دیتابیس شورا",
+        "level": 0,
+        "level_name": "council",
+        "council_seat": "variable",
+        "atomic_tasks": 6,
+        "permissions": [
+          "read-all",
+          "read-database",
+          "approve-migration"
+        ]
+      },
+      {
+        "id": "T-007",
+        "en": "Council Crypto Seat",
+        "fa": "کرسی رمزنگاری شورا",
+        "level": 0,
+        "level_name": "council",
+        "council_seat": "variable",
+        "atomic_tasks": 6,
+        "permissions": [
+          "read-all",
+          "read-crypto",
+          "approve-security"
+        ]
+      },
+      {
+        "id": "T-008",
+        "en": "Council Frontend Seat",
+        "fa": "کرسی فرانت‌اند شورا",
+        "level": 0,
+        "level_name": "council",
+        "council_seat": "variable",
+        "atomic_tasks": 6,
+        "permissions": [
+          "read-all",
+          "read-frontend",
+          "approve-quality"
+        ]
+      },
+      {
+        "id": "T-009",
+        "en": "Council Integration Seat",
+        "fa": "کرسی یکپارچه‌سازی شورا",
+        "level": 0,
+        "level_name": "council",
+        "council_seat": "variable",
+        "atomic_tasks": 6,
+        "permissions": [
+          "read-all",
+          "read-mcp",
+          "approve-mcp"
+        ]
+      },
+      {
+        "id": "T-010",
+        "en": "Chief Architect",
+        "fa": "معمار ارشد",
+        "level": 1,
+        "level_name": "senior",
+        "council_seat": null,
+        "atomic_tasks": 12,
+        "permissions": [
+          "read-all",
+          "write-architecture",
+          "write-docs"
+        ]
+      },
+      {
+        "id": "T-011",
+        "en": "Security Engineer",
+        "fa": "مهندس امنیت",
+        "level": 1,
+        "level_name": "senior",
+        "council_seat": null,
+        "atomic_tasks": 12,
+        "permissions": [
+          "read-security",
+          "write-security",
+          "read-all"
+        ]
+      },
+      {
+        "id": "T-012",
+        "en": "QA Lead",
+        "fa": "سرپرست تضمین کیفیت",
+        "level": 1,
+        "level_name": "senior",
+        "council_seat": null,
+        "atomic_tasks": 11,
+        "permissions": [
+          "read-quality",
+          "write-tests"
+        ]
+      },
+      {
+        "id": "T-013",
+        "en": "Performance Lead",
+        "fa": "سرپرست عملکرد",
+        "level": 1,
+        "level_name": "senior",
+        "council_seat": null,
+        "atomic_tasks": 11,
+        "permissions": [
+          "read-performance",
+          "write-performance"
+        ]
+      },
+      {
+        "id": "T-014",
+        "en": "Database Lead",
+        "fa": "سرپرست دیتابیس",
+        "level": 1,
+        "level_name": "senior",
+        "council_seat": null,
+        "atomic_tasks": 11,
+        "permissions": [
+          "read-database",
+          "write-database",
+          "exec-migration"
+        ]
+      },
+      {
+        "id": "T-015",
+        "en": "Frontend Lead",
+        "fa": "سرپرست فرانت‌اند",
+        "level": 1,
+        "level_name": "senior",
+        "council_seat": null,
+        "atomic_tasks": 11,
+        "permissions": [
+          "read-frontend",
+          "write-frontend"
+        ]
+      },
+      {
+        "id": "T-016",
+        "en": "Integration Lead",
+        "fa": "سرپرست یکپارچه‌سازی",
+        "level": 1,
+        "level_name": "senior",
+        "council_seat": null,
+        "atomic_tasks": 10,
+        "permissions": [
+          "read-mcp",
+          "read-all",
+          "write-mcp"
+        ]
+      },
+      {
+        "id": "T-017",
+        "en": "Crypto Specialist",
+        "fa": "متخصص رمزنگاری",
+        "level": 1,
+        "level_name": "senior",
+        "council_seat": null,
+        "atomic_tasks": 10,
+        "permissions": [
+          "read-crypto",
+          "write-crypto"
+        ]
+      },
+      {
+        "id": "T-018",
+        "en": "API Designer",
+        "fa": "طراح API",
+        "level": 2,
+        "level_name": "specialist",
+        "council_seat": null,
+        "atomic_tasks": 5,
+        "permissions": [
+          "read-architecture",
+          "write-docs"
+        ]
+      },
+      {
+        "id": "T-019",
+        "en": "Routing Specialist",
+        "fa": "متخصص مسیریابی",
+        "level": 2,
+        "level_name": "specialist",
+        "council_seat": null,
+        "atomic_tasks": 4,
+        "permissions": [
+          "read-architecture",
+          "write-architecture"
+        ]
+      },
+      {
+        "id": "T-020",
+        "en": "Schema Designer",
+        "fa": "طراح شِما",
+        "level": 2,
+        "level_name": "specialist",
+        "council_seat": null,
+        "atomic_tasks": 5,
+        "permissions": [
+          "read-database",
+          "write-database"
+        ]
+      },
+      {
+        "id": "T-021",
+        "en": "Query Optimizer",
+        "fa": "بهینه‌ساز کوئری",
+        "level": 2,
+        "level_name": "specialist",
+        "council_seat": null,
+        "atomic_tasks": 5,
+        "permissions": [
+          "read-database",
+          "read-performance"
+        ]
+      },
+      {
+        "id": "T-022",
+        "en": "DB Migration Specialist",
+        "fa": "متخصص مهاجرت دیتابیس",
+        "level": 2,
+        "level_name": "specialist",
+        "council_seat": null,
+        "atomic_tasks": 5,
+        "permissions": [
+          "read-database",
+          "write-database",
+          "exec-migration"
+        ]
+      },
+      {
+        "id": "T-023",
+        "en": "Session Specialist",
+        "fa": "متخصص نشست",
+        "level": 2,
+        "level_name": "specialist",
+        "council_seat": null,
+        "atomic_tasks": 4,
+        "permissions": [
+          "read-security",
+          "write-security"
+        ]
+      },
+      {
+        "id": "T-024",
+        "en": "Auth Specialist",
+        "fa": "متخصص احراز هویت",
+        "level": 2,
+        "level_name": "specialist",
+        "council_seat": null,
+        "atomic_tasks": 5,
+        "permissions": [
+          "read-security",
+          "write-security"
+        ]
+      },
+      {
+        "id": "T-025",
+        "en": "Crypto Implementer",
+        "fa": "پیاده‌ساز رمزنگاری",
+        "level": 2,
+        "level_name": "specialist",
+        "council_seat": null,
+        "atomic_tasks": 5,
+        "permissions": [
+          "read-crypto",
+          "write-crypto"
+        ]
+      },
+      {
+        "id": "T-026",
+        "en": "Key Custodian",
+        "fa": "نگهبان کلید",
+        "level": 2,
+        "level_name": "specialist",
+        "council_seat": null,
+        "atomic_tasks": 4,
+        "permissions": [
+          "read-crypto"
+        ]
+      },
+      {
+        "id": "T-027",
+        "en": "Input Validation Specialist",
+        "fa": "متخصص اعتبارسنجی ورودی",
+        "level": 2,
+        "level_name": "specialist",
+        "council_seat": null,
+        "atomic_tasks": 5,
+        "permissions": [
+          "read-security",
+          "write-security"
+        ]
+      },
+      {
+        "id": "T-028",
+        "en": "Output Escaping Specialist",
+        "fa": "متخصص گریز خروجی",
+        "level": 2,
+        "level_name": "specialist",
+        "council_seat": null,
+        "atomic_tasks": 4,
+        "permissions": [
+          "read-security",
+          "write-frontend"
+        ]
+      },
+      {
+        "id": "T-029",
+        "en": "CSRF Specialist",
+        "fa": "متخصص CSRF",
+        "level": 2,
+        "level_name": "specialist",
+        "council_seat": null,
+        "atomic_tasks": 5,
+        "permissions": [
+          "read-security",
+          "write-security"
+        ]
+      },
+      {
+        "id": "T-030",
+        "en": "Headers & CSP Specialist",
+        "fa": "متخصص هدر و CSP",
+        "level": 2,
+        "level_name": "specialist",
+        "council_seat": null,
+        "atomic_tasks": 4,
+        "permissions": [
+          "read-security",
+          "write-security"
+        ]
+      },
+      {
+        "id": "T-031",
+        "en": "Upload Security Specialist",
+        "fa": "متخصص امنیت آپلود",
+        "level": 2,
+        "level_name": "specialist",
+        "council_seat": null,
+        "atomic_tasks": 4,
+        "permissions": [
+          "read-security",
+          "write-security"
+        ]
+      },
+      {
+        "id": "T-032",
+        "en": "Template Engine Specialist",
+        "fa": "متخصص موتور قالب",
+        "level": 2,
+        "level_name": "specialist",
+        "council_seat": null,
+        "atomic_tasks": 5,
+        "permissions": [
+          "read-frontend",
+          "write-frontend"
+        ]
+      },
+      {
+        "id": "T-033",
+        "en": "Forms & Validation UI Specialist",
+        "fa": "متخصص فرم و اعتبارسنجی UI",
+        "level": 2,
+        "level_name": "specialist",
+        "council_seat": null,
+        "atomic_tasks": 4,
+        "permissions": [
+          "read-frontend",
+          "write-frontend"
+        ]
+      },
+      {
+        "id": "T-034",
+        "en": "Accessibility Specialist",
+        "fa": "متخصص دسترس‌پذیری",
+        "level": 2,
+        "level_name": "specialist",
+        "council_seat": null,
+        "atomic_tasks": 4,
+        "permissions": [
+          "read-frontend",
+          "write-frontend"
+        ]
+      },
+      {
+        "id": "T-035",
+        "en": "Asset Pipeline Specialist",
+        "fa": "متخصص دارایی‌ها",
+        "level": 2,
+        "level_name": "specialist",
+        "council_seat": null,
+        "atomic_tasks": 4,
+        "permissions": [
+          "read-frontend",
+          "write-frontend"
+        ]
+      },
+      {
+        "id": "T-036",
+        "en": "Cache Specialist",
+        "fa": "متخصص کش",
+        "level": 2,
+        "level_name": "specialist",
+        "council_seat": null,
+        "atomic_tasks": 5,
+        "permissions": [
+          "read-performance",
+          "write-performance"
+        ]
+      },
+      {
+        "id": "T-037",
+        "en": "OPcache Tuner",
+        "fa": "تنظیم‌کننده OPcache",
+        "level": 2,
+        "level_name": "specialist",
+        "council_seat": null,
+        "atomic_tasks": 4,
+        "permissions": [
+          "read-performance",
+          "write-performance"
+        ]
+      },
+      {
+        "id": "T-038",
+        "en": "Profiling Specialist",
+        "fa": "متخصص پروفایلینگ",
+        "level": 2,
+        "level_name": "specialist",
+        "council_seat": null,
+        "atomic_tasks": 4,
+        "permissions": [
+          "read-performance",
+          "write-performance"
+        ]
+      },
+      {
+        "id": "T-039",
+        "en": "Memory Optimizer",
+        "fa": "بهینه‌ساز حافظه",
+        "level": 2,
+        "level_name": "specialist",
+        "council_seat": null,
+        "atomic_tasks": 4,
+        "permissions": [
+          "read-performance",
+          "write-performance"
+        ]
+      },
+      {
+        "id": "T-040",
+        "en": "Event Sourcing Specialist",
+        "fa": "متخصص Event Sourcing",
+        "level": 2,
+        "level_name": "specialist",
+        "council_seat": null,
+        "atomic_tasks": 5,
+        "permissions": [
+          "read-architecture",
+          "write-architecture"
+        ]
+      },
+      {
+        "id": "T-041",
+        "en": "CQRS Specialist",
+        "fa": "متخصص CQRS",
+        "level": 2,
+        "level_name": "specialist",
+        "council_seat": null,
+        "atomic_tasks": 4,
+        "permissions": [
+          "read-architecture",
+          "write-architecture"
+        ]
+      },
+      {
+        "id": "T-042",
+        "en": "Event Dispatcher Specialist",
+        "fa": "متخصص دیسپچر رویداد",
+        "level": 2,
+        "level_name": "specialist",
+        "council_seat": null,
+        "atomic_tasks": 4,
+        "permissions": [
+          "read-architecture",
+          "write-architecture"
+        ]
+      },
+      {
+        "id": "T-043",
+        "en": "Graph Specialist",
+        "fa": "متخصص گراف",
+        "level": 2,
+        "level_name": "specialist",
+        "council_seat": null,
+        "atomic_tasks": 4,
+        "permissions": [
+          "read-graph",
+          "write-graph"
+        ]
+      },
+      {
+        "id": "T-044",
+        "en": "Mind Map Specialist",
+        "fa": "متخصص نقشه ذهنی",
+        "level": 2,
+        "level_name": "specialist",
+        "council_seat": null,
+        "atomic_tasks": 4,
+        "permissions": [
+          "read-graph",
+          "write-graph"
+        ]
+      },
+      {
+        "id": "T-045",
+        "en": "MCP Integration Specialist",
+        "fa": "متخصص یکپارچه‌سازی MCP",
+        "level": 2,
+        "level_name": "specialist",
+        "council_seat": null,
+        "atomic_tasks": 5,
+        "permissions": [
+          "read-mcp",
+          "write-mcp"
+        ]
+      },
+      {
+        "id": "T-046",
+        "en": "Tooling Specialist",
+        "fa": "متخصص ابزار",
+        "level": 2,
+        "level_name": "specialist",
+        "council_seat": null,
+        "atomic_tasks": 4,
+        "permissions": [
+          "read-quality",
+          "write-docs",
+          "read-rea",
+          "write-rea"
+        ]
+      },
+      {
+        "id": "T-047",
+        "en": "Deployment Specialist",
+        "fa": "متخصص استقرار",
+        "level": 2,
+        "level_name": "specialist",
+        "council_seat": null,
+        "atomic_tasks": 4,
+        "permissions": [
+          "read-deployment",
+          "write-deployment",
+          "exec-deploy"
+        ]
+      },
+      {
+        "id": "T-048",
+        "en": "Core Developer",
+        "fa": "توسعه‌دهنده هسته",
+        "level": 3,
+        "level_name": "executor",
+        "council_seat": null,
+        "atomic_tasks": 4,
+        "permissions": [
+          "read-architecture",
+          "write-core"
+        ]
+      },
+      {
+        "id": "T-049",
+        "en": "Router Developer",
+        "fa": "توسعه‌دهنده روتر",
+        "level": 3,
+        "level_name": "executor",
+        "council_seat": null,
+        "atomic_tasks": 4,
+        "permissions": [
+          "read-architecture",
+          "write-core"
+        ]
+      },
+      {
+        "id": "T-050",
+        "en": "DI Container Developer",
+        "fa": "توسعه‌دهنده کانتینر DI",
+        "level": 3,
+        "level_name": "executor",
+        "council_seat": null,
+        "atomic_tasks": 4,
+        "permissions": [
+          "read-architecture",
+          "write-core"
+        ]
+      },
+      {
+        "id": "T-051",
+        "en": "Database Developer",
+        "fa": "توسعه‌دهنده دیتابیس",
+        "level": 3,
+        "level_name": "executor",
+        "council_seat": null,
+        "atomic_tasks": 4,
+        "permissions": [
+          "read-database",
+          "write-database",
+          "write-core"
+        ]
+      },
+      {
+        "id": "T-052",
+        "en": "View Developer",
+        "fa": "توسعه‌دهنده View",
+        "level": 3,
+        "level_name": "executor",
+        "council_seat": null,
+        "atomic_tasks": 3,
+        "permissions": [
+          "read-frontend",
+          "write-frontend"
+        ]
+      },
+      {
+        "id": "T-053",
+        "en": "Session Developer",
+        "fa": "توسعه‌دهنده نشست",
+        "level": 3,
+        "level_name": "executor",
+        "council_seat": null,
+        "atomic_tasks": 3,
+        "permissions": [
+          "read-security",
+          "write-security"
+        ]
+      },
+      {
+        "id": "T-054",
+        "en": "Crypto Developer",
+        "fa": "توسعه‌دهنده رمزنگاری",
+        "level": 3,
+        "level_name": "executor",
+        "council_seat": null,
+        "atomic_tasks": 3,
+        "permissions": [
+          "read-crypto",
+          "write-crypto"
+        ]
+      },
+      {
+        "id": "T-055",
+        "en": "Forms Developer",
+        "fa": "توسعه‌دهنده فرم",
+        "level": 3,
+        "level_name": "executor",
+        "council_seat": null,
+        "atomic_tasks": 3,
+        "permissions": [
+          "read-frontend",
+          "write-frontend",
+          "write-security"
+        ]
+      },
+      {
+        "id": "T-056",
+        "en": "Event Infrastructure Developer",
+        "fa": "توسعه‌دهنده زیرساخت رویداد",
+        "level": 3,
+        "level_name": "executor",
+        "council_seat": null,
+        "atomic_tasks": 4,
+        "permissions": [
+          "read-architecture",
+          "write-core"
+        ]
+      },
+      {
+        "id": "T-057",
+        "en": "Queue Worker Developer",
+        "fa": "توسعه‌دهنده صف و Worker",
+        "level": 3,
+        "level_name": "executor",
+        "council_seat": null,
+        "atomic_tasks": 3,
+        "permissions": [
+          "read-architecture",
+          "write-core"
+        ]
+      },
+      {
+        "id": "T-058",
+        "en": "CLI Tool Developer",
+        "fa": "توسعه‌دهنده CLI",
+        "level": 3,
+        "level_name": "executor",
+        "council_seat": null,
+        "atomic_tasks": 3,
+        "permissions": [
+          "read-architecture",
+          "write-core"
+        ]
+      },
+      {
+        "id": "T-059",
+        "en": "Test Engineer",
+        "fa": "مهندس تست",
+        "level": 3,
+        "level_name": "executor",
+        "council_seat": null,
+        "atomic_tasks": 4,
+        "permissions": [
+          "read-quality",
+          "write-tests"
+        ]
+      },
+      {
+        "id": "T-060",
+        "en": "Documentation Developer",
+        "fa": "توسعه‌دهنده مستندات",
+        "level": 3,
+        "level_name": "executor",
+        "council_seat": null,
+        "atomic_tasks": 3,
+        "permissions": [
+          "read-all",
+          "write-docs"
+        ]
+      },
+      {
+        "id": "T-061",
+        "en": "Migration Developer",
+        "fa": "توسعه‌دهنده مهاجرت",
+        "level": 3,
+        "level_name": "executor",
+        "council_seat": null,
+        "atomic_tasks": 3,
+        "permissions": [
+          "read-database",
+          "write-database"
+        ]
+      },
+      {
+        "id": "T-062",
+        "en": "Example Developer",
+        "fa": "توسعه‌دهنده مثال",
+        "level": 3,
+        "level_name": "executor",
+        "council_seat": null,
+        "atomic_tasks": 3,
+        "permissions": [
+          "read-all",
+          "write-docs",
+          "write-core"
+        ]
+      },
+      {
+        "id": "T-063",
+        "en": "MCP Tool Developer",
+        "fa": "توسعه‌دهنده ابزار MCP",
+        "level": 3,
+        "level_name": "executor",
+        "council_seat": null,
+        "atomic_tasks": 4,
+        "permissions": [
+          "read-mcp",
+          "write-mcp"
+        ]
+      },
+      {
+        "id": "T-064",
+        "en": "Frontend Developer",
+        "fa": "توسعه‌دهنده فرانت‌اند",
+        "level": 3,
+        "level_name": "executor",
+        "council_seat": null,
+        "atomic_tasks": 4,
+        "permissions": [
+          "read-frontend",
+          "write-frontend"
+        ]
+      },
+      {
+        "id": "T-065",
+        "en": "Refactor Developer",
+        "fa": "توسعه‌دهنده بازآفرینی",
+        "level": 3,
+        "level_name": "executor",
+        "council_seat": null,
+        "atomic_tasks": 3,
+        "permissions": [
+          "read-all",
+          "write-core"
+        ]
+      },
+      {
+        "id": "T-066",
+        "en": "File Creator",
+        "fa": "ایجادکننده فایل",
+        "level": 4,
+        "level_name": "atomic-worker",
+        "council_seat": null,
+        "atomic_tasks": 1,
+        "permissions": [
+          "read-architecture",
+          "write-docs"
+        ]
+      },
+      {
+        "id": "T-067",
+        "en": "File Modifier",
+        "fa": "ویرایشگر فایل",
+        "level": 4,
+        "level_name": "atomic-worker",
+        "council_seat": null,
+        "atomic_tasks": 1,
+        "permissions": [
+          "read-architecture",
+          "write-docs"
+        ]
+      },
+      {
+        "id": "T-068",
+        "en": "Test Runner",
+        "fa": "اجراکننده تست",
+        "level": 4,
+        "level_name": "atomic-worker",
+        "council_seat": null,
+        "atomic_tasks": 1,
+        "permissions": [
+          "read-all"
+        ]
+      },
+      {
+        "id": "T-069",
+        "en": "Lint Runner",
+        "fa": "اجراکننده Lint",
+        "level": 4,
+        "level_name": "atomic-worker",
+        "council_seat": null,
+        "atomic_tasks": 1,
+        "permissions": [
+          "read-all"
+        ]
+      },
+      {
+        "id": "T-070",
+        "en": "Link Checker",
+        "fa": "بررسی‌گر لینک",
+        "level": 4,
+        "level_name": "atomic-worker",
+        "council_seat": null,
+        "atomic_tasks": 1,
+        "permissions": [
+          "read-all"
+        ]
+      },
+      {
+        "id": "T-071",
+        "en": "Changelog Updater",
+        "fa": "به‌روزرسان CHANGELOG",
+        "level": 4,
+        "level_name": "atomic-worker",
+        "council_seat": null,
+        "atomic_tasks": 1,
+        "permissions": [
+          "read-architecture",
+          "write-docs"
+        ]
+      },
+      {
+        "id": "T-072",
+        "en": "Tag Creator",
+        "fa": "ایجادگر تگ",
+        "level": 4,
+        "level_name": "atomic-worker",
+        "council_seat": null,
+        "atomic_tasks": 1,
+        "permissions": [
+          "read-architecture",
+          "write-docs"
+        ]
+      },
+      {
+        "id": "T-073",
+        "en": "Logger",
+        "fa": "ثبت‌گر رویداد",
+        "level": 4,
+        "level_name": "atomic-worker",
+        "council_seat": null,
+        "atomic_tasks": 1,
+        "permissions": [
+          "read-architecture",
+          "write-docs"
+        ]
+      },
+      {
+        "id": "T-074",
+        "en": "Code Reviewer",
+        "fa": "بازبین کد",
+        "level": 5,
+        "level_name": "cross-cutting",
+        "council_seat": null,
+        "atomic_tasks": 3,
+        "permissions": [
+          "read-all",
+          "approve-merge"
+        ]
+      },
+      {
+        "id": "T-075",
+        "en": "Security Auditor",
+        "fa": "ممیاز امنیت",
+        "level": 5,
+        "level_name": "cross-cutting",
+        "council_seat": null,
+        "atomic_tasks": 3,
+        "permissions": [
+          "read-security",
+          "read-all"
+        ]
+      },
+      {
+        "id": "T-076",
+        "en": "Doc Writer",
+        "fa": "نویسنده مستندات",
+        "level": 5,
+        "level_name": "cross-cutting",
+        "council_seat": null,
+        "atomic_tasks": 3,
+        "permissions": [
+          "read-all",
+          "write-docs"
+        ]
+      },
+      {
+        "id": "T-077",
+        "en": "Test Writer",
+        "fa": "نویسنده تست",
+        "level": 5,
+        "level_name": "cross-cutting",
+        "council_seat": null,
+        "atomic_tasks": 3,
+        "permissions": [
+          "read-quality",
+          "write-tests"
+        ]
+      },
+      {
+        "id": "T-078",
+        "en": "Build Repairer",
+        "fa": "تعمیرکار ساخت",
+        "level": 5,
+        "level_name": "cross-cutting",
+        "council_seat": null,
+        "atomic_tasks": 3,
+        "permissions": [
+          "read-all",
+          "write-core"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,37 @@
+# Worker Contract — Cache Specialist (T-036)
+
+> نسخه مهارت: 0.0.1 | قالب: scaffolds/workers/_template.md | سطح ۲ — متخصصان
+
+## 1. Identity
+- role_id: **T-036** — Cache Specialist / متخصص کش
+- level: 2 (سطح ۲ — متخصصان)
+- worker_id: `W-<run>-<task_id>`
+- reports_to: مدیر ارشد حوزه
+
+## 2. Task (Atomic) — 5 وظیفه
+| Task ID | وظیفه | فاز | Output | DoD |
+|---------|-------|-----|--------|-----|
+| T-036-01 | طراحی لایه کش | F2 | سند/کد ثبت‌شده در مخزن مهارت | خروجی تولید و توسط مقام بازبینی تأیید شده |
+| T-036-02 | کش فایل‌محور | F4 | سند/کد ثبت‌شده در مخزن مهارت | خروجی تولید و توسط مقام بازبینی تأیید شده |
+| T-036-03 | TTL و Invalidation | F4 | سند/کد ثبت‌شده در مخزن مهارت | خروجی تولید و توسط مقام بازبینی تأیید شده |
+| T-036-04 | کش کوئری | F4 | سند/کد ثبت‌شده در مخزن مهارت | خروجی تولید و توسط مقام بازبینی تأیید شده |
+| T-036-05 | قفل Stampede | F4 | سند/کد ثبت‌شده در مخزن مهارت | خروجی تولید و توسط مقام بازبینی تأیید شده |
+
+## 3. Authority (مجوزها)
+`read-performance`, `write-performance`
+
+## 4. Relationships
+- can_consult: همه نقش‌های هم‌فاز (ثبت در consultation/ طبق C1..C7)
+- must_consult: متخصص حوزه در صورت خروج از scope
+
+## 5. Budget
+- فقط ۱ وظیفه اتمیک هم‌زمان؛ اتمام = انحلال Worker (قاعده ۲ AGENTS.md)
+
+## 6. DoD
+- هر وظیفه: خروجی طبق جدول بخش ۲ + تأیید بازبینی مربوط (Code Reviewer T-074 / شورا)
+
+## 7. Escalation
+- بن‌بست فنی → سطح N-1 | وتوی امنیتی → غیرقابل نقض (T-001)
+
+## 8. Lifecycle
+- Requirement → Hiring → Contract → Onboarding → Execution → Review → Dissolution → Retrospective

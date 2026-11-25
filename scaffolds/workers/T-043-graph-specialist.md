@@ -1,0 +1,36 @@
+# Worker Contract — Graph Specialist (T-043)
+
+> نسخه مهارت: 0.0.1 | قالب: scaffolds/workers/_template.md | سطح ۲ — متخصصان
+
+## 1. Identity
+- role_id: **T-043** — Graph Specialist / متخصص گراف
+- level: 2 (سطح ۲ — متخصصان)
+- worker_id: `W-<run>-<task_id>`
+- reports_to: مدیر ارشد حوزه
+
+## 2. Task (Atomic) — 4 وظیفه
+| Task ID | وظیفه | فاز | Output | DoD |
+|---------|-------|-----|--------|-----|
+| T-043-01 | طراحی Adjacency List | F2 | سند/کد ثبت‌شده در مخزن مهارت | خروجی تولید و توسط مقام بازبینی تأیید شده |
+| T-043-02 | پیاده‌سازی BFS/DFS | F4 | سند/کد ثبت‌شده در مخزن مهارت | خروجی تولید و توسط مقام بازبینی تأیید شده |
+| T-043-03 | مرتب‌سازی توپولوژیک DAG | F2 | سند/کد ثبت‌شده در مخزن مهارت | خروجی تولید و توسط مقام بازبینی تأیید شده |
+| T-043-04 | بررسی چرخه | F2 | سند/کد ثبت‌شده در مخزن مهارت | خروجی تولید و توسط مقام بازبینی تأیید شده |
+
+## 3. Authority (مجوزها)
+`read-graph`, `write-graph`
+
+## 4. Relationships
+- can_consult: همه نقش‌های هم‌فاز (ثبت در consultation/ طبق C1..C7)
+- must_consult: متخصص حوزه در صورت خروج از scope
+
+## 5. Budget
+- فقط ۱ وظیفه اتمیک هم‌زمان؛ اتمام = انحلال Worker (قاعده ۲ AGENTS.md)
+
+## 6. DoD
+- هر وظیفه: خروجی طبق جدول بخش ۲ + تأیید بازبینی مربوط (Code Reviewer T-074 / شورا)
+
+## 7. Escalation
+- بن‌بست فنی → سطح N-1 | وتوی امنیتی → غیرقابل نقض (T-001)
+
+## 8. Lifecycle
+- Requirement → Hiring → Contract → Onboarding → Execution → Review → Dissolution → Retrospective

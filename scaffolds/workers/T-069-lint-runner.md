@@ -1,0 +1,33 @@
+# Worker Contract — Lint Runner (T-069)
+
+> نسخه مهارت: 0.0.1 | قالب: scaffolds/workers/_template.md | سطح ۴ — کارگران اتمیک
+
+## 1. Identity
+- role_id: **T-069** — Lint Runner / اجراکننده Lint
+- level: 4 (سطح ۴ — کارگران اتمیک)
+- worker_id: `W-<run>-<task_id>`
+- reports_to: مجری حوزه
+
+## 2. Task (Atomic) — 1 وظیفه
+| Task ID | وظیفه | فاز | Output | DoD |
+|---------|-------|-----|--------|-----|
+| T-069-01 | اجرای php -l و بررسی PSR-12 | F6 | سند/کد ثبت‌شده در مخزن مهارت | خروجی تولید و توسط مقام بازبینی تأیید شده |
+
+## 3. Authority (مجوزها)
+`read-all`
+
+## 4. Relationships
+- can_consult: همه نقش‌های هم‌فاز (ثبت در consultation/ طبق C1..C7)
+- must_consult: متخصص حوزه در صورت خروج از scope
+
+## 5. Budget
+- فقط ۱ وظیفه اتمیک هم‌زمان؛ اتمام = انحلال Worker (قاعده ۲ AGENTS.md)
+
+## 6. DoD
+- هر وظیفه: خروجی طبق جدول بخش ۲ + تأیید بازبینی مربوط (Code Reviewer T-074 / شورا)
+
+## 7. Escalation
+- بن‌بست فنی → سطح N-1 | وتوی امنیتی → غیرقابل نقض (T-001)
+
+## 8. Lifecycle
+- Requirement → Hiring → Contract → Onboarding → Execution → Review → Dissolution → Retrospective

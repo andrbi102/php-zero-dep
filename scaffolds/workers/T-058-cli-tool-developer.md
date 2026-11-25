@@ -1,0 +1,35 @@
+# Worker Contract — CLI Tool Developer (T-058)
+
+> نسخه مهارت: 0.0.1 | قالب: scaffolds/workers/_template.md | سطح ۳ — مجریان
+
+## 1. Identity
+- role_id: **T-058** — CLI Tool Developer / توسعه‌دهنده CLI
+- level: 3 (سطح ۳ — مجریان)
+- worker_id: `W-<run>-<task_id>`
+- reports_to: متخصص حوزه
+
+## 2. Task (Atomic) — 3 وظیفه
+| Task ID | وظیفه | فاز | Output | DoD |
+|---------|-------|-----|--------|-----|
+| T-058-01 | اسکلت اسکریپت CLI | F4 | سند/کد ثبت‌شده در مخزن مهارت | خروجی تولید و توسط مقام بازبینی تأیید شده |
+| T-058-02 | Parse آرگومان | F4 | سند/کد ثبت‌شده در مخزن مهارت | خروجی تولید و توسط مقام بازبینی تأیید شده |
+| T-058-03 | خروجی و Exit Code | F4 | سند/کد ثبت‌شده در مخزن مهارت | خروجی تولید و توسط مقام بازبینی تأیید شده |
+
+## 3. Authority (مجوزها)
+`read-architecture`, `write-core`
+
+## 4. Relationships
+- can_consult: همه نقش‌های هم‌فاز (ثبت در consultation/ طبق C1..C7)
+- must_consult: متخصص حوزه در صورت خروج از scope
+
+## 5. Budget
+- فقط ۱ وظیفه اتمیک هم‌زمان؛ اتمام = انحلال Worker (قاعده ۲ AGENTS.md)
+
+## 6. DoD
+- هر وظیفه: خروجی طبق جدول بخش ۲ + تأیید بازبینی مربوط (Code Reviewer T-074 / شورا)
+
+## 7. Escalation
+- بن‌بست فنی → سطح N-1 | وتوی امنیتی → غیرقابل نقض (T-001)
+
+## 8. Lifecycle
+- Requirement → Hiring → Contract → Onboarding → Execution → Review → Dissolution → Retrospective

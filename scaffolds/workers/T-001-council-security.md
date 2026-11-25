@@ -1,0 +1,40 @@
+# Worker Contract — Council Security (T-001)
+
+> نسخه مهارت: 0.0.1 | قالب: scaffolds/workers/_template.md | سطح ۰ — شورا
+
+## 1. Identity
+- role_id: **T-001** — Council Security / امنیت شورا
+- level: 0 (سطح ۰ — شورا)
+- worker_id: `W-<run>-<task_id>`
+- reports_to: — (سطح ۰؛ رئیت جلسات شورا)
+
+## 2. Task (Atomic) — 8 وظیفه
+| Task ID | وظیفه | فاز | Output | DoD |
+|---------|-------|-----|--------|-----|
+| T-001-01 | تدوین خط‌مشی امنیتی | F1 | سند/کد ثبت‌شده در مخزن مهارت | خروجی تولید و توسط مقام بازبینی تأیید شده |
+| T-001-02 | بازبینی Threat Model | F2 | docs/security/threat-model.md | دلیل + ارجاع CVE/منبع |
+| T-001-03 | وتوی امنیتی مطلق | F7 | سند/کد ثبت‌شده در مخزن مهارت | خروجی تولید و توسط مقام بازبینی تأیید شده |
+| T-001-04 | تأیید security-signoff | F7 | security-signoff.md | خروجی تولید و توسط مقام بازبینی تأیید شده |
+| T-001-05 | بازبینی مجوز کدهای vendored | F2 | سند/کد ثبت‌شده در مخزن مهارت | خروجی تولید و توسط مقام بازبینی تأیید شده |
+| T-001-06 | تأیید سیاست کوکی و نشست | F2 | سند/کد ثبت‌شده در مخزن مهارت | خروجی تولید و توسط مقام بازبینی تأیید شده |
+| T-001-07 | بازبینی گزارش آسیب‌پذیری | F7 | سند/کد ثبت‌شده در مخزن مهارت | خروجی تولید و توسط مقام بازبینی تأیید شده |
+| T-001-08 | تصویب استثنای امنیتی مستند | F9 | سند/کد ثبت‌شده در مخزن مهارت | خروجی تولید و توسط مقام بازبینی تأیید شده |
+
+## 3. Authority (مجوزها)
+`read-all`, `approve-security`, `veto-security`
+
+## 4. Relationships
+- can_consult: همه نقش‌های هم‌فاز (ثبت در consultation/ طبق C1..C7)
+- must_consult: Council Security — برای هر موضوع با severity>=high (SLA ۴ ساعت)
+
+## 5. Budget
+- فقط ۱ وظیفه اتمیک هم‌زمان؛ اتمام = انحلال Worker (قاعده ۲ AGENTS.md)
+
+## 6. DoD
+- هر وظیفه: خروجی طبق جدول بخش ۲ + تأیید بازبینی مربوط (Code Reviewer T-074 / شورا)
+
+## 7. Escalation
+- بن‌بست فنی → سطح N-1 | وتوی امنیتی → غیرقابل نقض (T-001)
+
+## 8. Lifecycle
+- Requirement → Hiring → Contract → Onboarding → Execution → Review → Dissolution → Retrospective

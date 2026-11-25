@@ -1,0 +1,36 @@
+# Worker Contract — Headers & CSP Specialist (T-030)
+
+> نسخه مهارت: 0.0.1 | قالب: scaffolds/workers/_template.md | سطح ۲ — متخصصان
+
+## 1. Identity
+- role_id: **T-030** — Headers & CSP Specialist / متخصص هدر و CSP
+- level: 2 (سطح ۲ — متخصصان)
+- worker_id: `W-<run>-<task_id>`
+- reports_to: مدیر ارشد حوزه
+
+## 2. Task (Atomic) — 4 وظیفه
+| Task ID | وظیفه | فاز | Output | DoD |
+|---------|-------|-----|--------|-----|
+| T-030-01 | تدوین CSP | F2 | سند/کد ثبت‌شده در مخزن مهارت | خروجی تولید و توسط مقام بازبینی تأیید شده |
+| T-030-02 | تنظیم HSTS | F2 | سند/کد ثبت‌شده در مخزن مهارت | خروجی تولید و توسط مقام بازبینی تأیید شده |
+| T-030-03 | X-Frame-Options و Referrer-Policy | F2 | سند/کد ثبت‌شده در مخزن مهارت | خروجی تولید و توسط مقام بازبینی تأیید شده |
+| T-030-04 | ارسال هدرها در روتر | F4 | سند/کد ثبت‌شده در مخزن مهارت | خروجی تولید و توسط مقام بازبینی تأیید شده |
+
+## 3. Authority (مجوزها)
+`read-security`, `write-security`
+
+## 4. Relationships
+- can_consult: همه نقش‌های هم‌فاز (ثبت در consultation/ طبق C1..C7)
+- must_consult: Council Security — برای هر موضوع با severity>=high (SLA ۴ ساعت)
+
+## 5. Budget
+- فقط ۱ وظیفه اتمیک هم‌زمان؛ اتمام = انحلال Worker (قاعده ۲ AGENTS.md)
+
+## 6. DoD
+- هر وظیفه: خروجی طبق جدول بخش ۲ + تأیید بازبینی مربوط (Code Reviewer T-074 / شورا)
+
+## 7. Escalation
+- بن‌بست فنی → سطح N-1 | وتوی امنیتی → غیرقابل نقض (T-001)
+
+## 8. Lifecycle
+- Requirement → Hiring → Contract → Onboarding → Execution → Review → Dissolution → Retrospective

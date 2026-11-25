@@ -1,0 +1,19 @@
+# ADR-0007: پشتیبانی از معماری DDD / Hexagonal / Clean
+
+- وضعیت: Accepted
+- تاریخ: 2026-11-25
+- تصمیم‌گیرنده: Chief Architect (T-010-02)
+- approved_by: Council Architect (T-000-01)
+
+## Context (زمینه)
+پروژه‌های تولیدشده توسط مهارت ممکن است به الگوی **DDD / Hexagonal / Clean** نیاز داشته باشند.
+ایده اصلی: جداسازی Domain از Infrastructure. مرجع Zero-Dep: PHP DDD Demo.
+
+## Decision (تصمیم)
+اسکلت‌ها و راهنمای این معماری را در `docs/architecture/` نگه می‌داریم و
+پیاده‌سازی را از scaffolds خود مهارت برمی‌داریم. نکته اجباری ایجنت: Domain نباید به PDO/HTTP وابسته باشد.
+
+## Consequences (پیامدها)
++ انتخاب آگاهانه با راهنمای `docs/architecture/16-selection-guide.md`
++ بدون وابستگی جدید — الگو دست‌نویس یا از scaffolds
+− برای الگوهای خاص (ES/CQRS) پیچیدگی بیشتر که فقط با نیاز واقعی توجیه می‌شود

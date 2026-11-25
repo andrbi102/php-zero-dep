@@ -1,0 +1,37 @@
+# Worker Contract — MCP Integration Specialist (T-045)
+
+> نسخه مهارت: 0.0.1 | قالب: scaffolds/workers/_template.md | سطح ۲ — متخصصان
+
+## 1. Identity
+- role_id: **T-045** — MCP Integration Specialist / متخصص یکپارچه‌سازی MCP
+- level: 2 (سطح ۲ — متخصصان)
+- worker_id: `W-<run>-<task_id>`
+- reports_to: مدیر ارشد حوزه
+
+## 2. Task (Atomic) — 5 وظیفه
+| Task ID | وظیفه | فاز | Output | DoD |
+|---------|-------|-----|--------|-----|
+| T-045-01 | راه‌اندازی Context7 | F1 | سند/کد ثبت‌شده در مخزن مهارت | خروجی تولید و توسط مقام بازبینی تأیید شده |
+| T-045-02 | تدوین قاعده resolve→query | F1 | سند/کد ثبت‌شده در مخزن مهارت | خروجی تولید و توسط مقام بازبینی تأیید شده |
+| T-045-03 | راه‌اندازی Remote با API Key | F1 | سند/کد ثبت‌شده در مخزن مهارت | خروجی تولید و توسط مقام بازبینی تأیید شده |
+| T-045-04 | طراحی پوشه tools/ سرور MCP | F4 | سند/کد ثبت‌شده در مخزن مهارت | خروجی تولید و توسط مقام بازبینی تأیید شده |
+| T-045-05 | مستندسازی MCP.md | F8 | سند/کد ثبت‌شده در مخزن مهارت | خروجی تولید و توسط مقام بازبینی تأیید شده |
+
+## 3. Authority (مجوزها)
+`read-mcp`, `write-mcp`
+
+## 4. Relationships
+- can_consult: همه نقش‌های هم‌فاز (ثبت در consultation/ طبق C1..C7)
+- must_consult: متخصص حوزه در صورت خروج از scope
+
+## 5. Budget
+- فقط ۱ وظیفه اتمیک هم‌زمان؛ اتمام = انحلال Worker (قاعده ۲ AGENTS.md)
+
+## 6. DoD
+- هر وظیفه: خروجی طبق جدول بخش ۲ + تأیید بازبینی مربوط (Code Reviewer T-074 / شورا)
+
+## 7. Escalation
+- بن‌بست فنی → سطح N-1 | وتوی امنیتی → غیرقابل نقض (T-001)
+
+## 8. Lifecycle
+- Requirement → Hiring → Contract → Onboarding → Execution → Review → Dissolution → Retrospective

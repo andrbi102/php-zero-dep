@@ -1,0 +1,24 @@
+{
+  "skill_name": "php-zero-dep",
+  "skill_version": "0.0.1",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "یک وب‌سایت معرفی شرکت با PHP بساز — هاست اشتراکی دارم بدون دسترسی SSH، فقط Apache و .htaccess. صفحات: خانه، درباره ما، خدمات، فرم تماس. Composer هم در دسترس نیست.",
+      "expected_output": "فعال‌شدن مهارت؛ پروفایل solo؛ ساختار MVC سبک با scaffolds (router/view/database)؛ SQLite یا MySQL هاست؛ فرم تماس با Validator+CSRF+RateLimiter؛ راهنمای .htaccess؛ migration از مرورگر؛ هیچ composer.json",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "برای فروشگاه اینترنتی‌ام یک REST API با PHP بنویس: محصولات، سبد خرید و سفارش. بدون هیچ فریمورکی، امن و سریع.",
+      "expected_output": "معماری REST با /v1/؛ توکن احراز هویت؛ idempotency سفارش؛ تراکنش موجودی؛ UPSERT dialect-aware؛ rate limit با 429+Retry-After؛ مدل خطای یکسان؛ OpenAPI با ApexDocs؛ فازهای F1..F10 خلاصه‌شده در پروفایل مناسب",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "کد PHP موجودم را به PHP 8.3 ارتقا بده و امنیتش را بپوش — حالا با md5 هش می‌کند و کوئری‌ها رشته‌ای چسبانده می‌شوند و session_regenerate_id هم بعد از لاگین صدا زده نمی‌شود.",
+      "expected_output": "ممیزی با چک‌لیست docs/security؛ مهاجرت md5→Argon2id با rehash تدریجی؛ الحاق رشته→Prepared Statement؛ افزودن session_regenerate_id(true)؛ strict_types و هدرهای امنیتی؛ گزارش یافته‌ها با severity و فاز بازبینی (F5/F7)",
+      "files": []
+    }
+  ]
+}
