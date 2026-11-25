@@ -2,6 +2,25 @@
 
 > نسخه مهارت: **0.0.1** | منبع حقیقت: `RULES.json` → `org_model` (شمارش‌ها از آنجا تولید می‌شوند)
 
+## مسیرهای خواندن — کدام فایل، کِی؟
+
+| اگر می‌خواهی… | بخوان (به ترتیب) |
+|----------------|-------------------|
+| مدل را از صفر بفهمی | `01-model.md` ← `02-hierarchy.md` ← `03-roles.md` |
+| یک Worker استخدام کنی | `08-lifecycle.md` ← `scaffolds/workers/_template.md` ← قرارداد نقش در `scaffolds/workers/T-*.md` |
+| بدانی چه کسی چه مسئولیتی دارد | `05-raci.md` ← `raci/tasks/` |
+| تصمیم شورا بخواهی/ثبت کنی | `06-council.md` ← `council-log.md` (ریشه) ← `council/sessions/` |
+| مشورت کنی | `07-consultation.md` ← `templates/consultation-template.md` ← `consultation/log/` |
+| ترتیب وظایف را بچینی | `09-dag.md` ← `atomic-tasks/by-phase/F*.md` |
+| پروفایل solo/full انتخاب کنی | `10-profiles.md` |
+| مطمئن شوی کسی هم می‌سازد هم تأیید نمی‌کند | `11-sod.md` ← `scripts/verify_org.py` |
+| فهرست وظایف یک نقش را ببینی | `atomic-tasks/by-role/T-NNN.md` (کارت کامل نقش) |
+| فهرست وظایف یک فاز را ببینی | `atomic-tasks/by-phase/F*.md` |
+
+**قاعده طلایی:** دادهٔ نهایی همیشه از `RULES.json` می‌آید؛ فایل‌های این
+پوشه «نمای قابل‌فهم» همان داده‌اند. هر عددی که اینجا می‌بینی با
+`python3 scripts/verify_org.py` قابل راستی‌آزمایی است.
+
 ## ساختار
 
 ```
@@ -19,7 +38,7 @@ docs/org/
 ├── 10-profiles.md         ← پروفایل‌های full و solo
 ├── 11-sod.md              ← تفکیک وظایف SoD-1..5 (با استثنای مستند release)
 ├── roles/by-level/        ← جزئیات نقش‌ها به تفکیک سطح (۶ فایل)
-├── atomic-tasks/by-role/  ← ۷۹ فایل (هر نقش: جدول وظایف)
+├── atomic-tasks/by-role/  ← ۷۹ فایل (کارت کامل هر نقش: وظایف + مجوزها)
 ├── atomic-tasks/by-phase/ ← ۱۰ فایل (هر فاز: وظایف همان فاز)
 ├── raci/tasks/            ← RACI وظایف کلیدی
 ├── council/sessions/      ← صورت‌جلسات (به‌علاوه council-log.md در ریشه)

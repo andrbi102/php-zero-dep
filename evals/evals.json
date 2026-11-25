@@ -1,23 +1,125 @@
 {
   "skill_name": "php-zero-dep",
   "skill_version": "0.0.1",
+  "description": "سناریوهای سنجش کیفیت مهارت — هر سناریو یک پرامپت واقعی کاربر + خروجی موردانتظار + روبریک داوری دارد. داوری: هر معیار روبریک گذر/شکست است؛ سناریو فقط با گذر همه معیارهای critical قبول می‌شود.",
   "evals": [
     {
       "id": 1,
+      "title": "سایت شرکتی روی هاست اشتراکی",
       "prompt": "یک وب‌سایت معرفی شرکت با PHP بساز — هاست اشتراکی دارم بدون دسترسی SSH، فقط Apache و .htaccess. صفحات: خانه، درباره ما، خدمات، فرم تماس. Composer هم در دسترس نیست.",
       "expected_output": "فعال‌شدن مهارت؛ پروفایل solo؛ ساختار MVC سبک با scaffolds (router/view/database)؛ SQLite یا MySQL هاست؛ فرم تماس با Validator+CSRF+RateLimiter؛ راهنمای .htaccess؛ migration از مرورگر؛ هیچ composer.json",
+      "rubric": [
+        "critical: هیچ composer.json یا vendor/ در خروجی نیست",
+        "critical: همه فایل‌ها declare(strict_types=1) دارند",
+        "critical: فرم تماس توکن CSRF امضاشده HMAC دارد",
+        "critical: خروجی‌ها با View::e() رندر می‌شوند",
+        "high: راهکار migration بدون SSH (از مرورگر با محافظت) ارائه شده",
+        "high: هدرهای امنیتی ۵گانه تنظیم شده‌اند",
+        "medium: پروفایل solo انتخاب و فازهای آن رعایت شده"
+      ],
       "files": []
     },
     {
       "id": 2,
+      "title": "REST API فروشگاه",
       "prompt": "برای فروشگاه اینترنتی‌ام یک REST API با PHP بنویس: محصولات، سبد خرید و سفارش. بدون هیچ فریمورکی، امن و سریع.",
       "expected_output": "معماری REST با /v1/؛ توکن احراز هویت؛ idempotency سفارش؛ تراکنش موجودی؛ UPSERT dialect-aware؛ rate limit با 429+Retry-After؛ مدل خطای یکسان؛ OpenAPI با ApexDocs؛ فازهای F1..F10 خلاصه‌شده در پروفایل مناسب",
+      "rubric": [
+        "critical: همه کوئری‌ها PDO Prepared هستند",
+        "critical: endpoint سفارش idempotency دارد (کلید idempotency)",
+        "critical: احراز هویت توکنی با ذخیره امن (هش توکن) پیاده شده",
+        "high: rate limit با هدر 429 و Retry-After از scaffolds/rate-limiter.php",
+        "high: مدل خطای یکسان در همه endpoint ها",
+        "medium: نسخه‌بندی /v1/ در مسیرها",
+        "medium: انتخاب معماری با ADR ثبت شده"
+      ],
       "files": []
     },
     {
       "id": 3,
+      "title": "ارتقا و امن‌سازی کد قدیمی",
       "prompt": "کد PHP موجودم را به PHP 8.3 ارتقا بده و امنیتش را بپوش — حالا با md5 هش می‌کند و کوئری‌ها رشته‌ای چسبانده می‌شوند و session_regenerate_id هم بعد از لاگین صدا زده نمی‌شود.",
       "expected_output": "ممیزی با چک‌لیست docs/security؛ مهاجرت md5→Argon2id با rehash تدریجی؛ الحاق رشته→Prepared Statement؛ افزودن session_regenerate_id(true)؛ strict_types و هدرهای امنیتی؛ گزارش یافته‌ها با severity و فاز بازبینی (F5/F7)",
+      "rubric": [
+        "critical: md5 حذف و Argon2id با password_needs_rehash برای مهاجرت تدریجی آمده",
+        "critical: همه الحاق رشته به Prepared Statement تبدیل شده",
+        "critical: session_regenerate_id(true) پس از ورود اضافه شده",
+        "high: گزارش یافته‌ها با severity (critical/high/medium/low) ارائه شده",
+        "high: declare(strict_types=1) به همه فایل‌ها اضافه شده",
+        "medium: هدرهای امنیتی ۵گانه اضافه شده"
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "title": "ابزار CLI بدون وابستگی",
+      "prompt": "یک ابزار خط فرمان PHP بنویس که یک پوشه عکس را با GD بند‌انگشتی کند و گزارش CSV بدهد. روی سرور فقط PHP خالص دارم.",
+      "expected_output": "ابزار CLI تک‌فایلی یا ساختار سبک با getopt؛ اعتبارسنجی مسیر (path traversal بسته)؛ حافظه و batch برای پوشه‌های بزرگ؛ گزارش CSV با escape مناسب؛ بدون هیچ وابستگی",
+      "rubric": [
+        "critical: هیچ وابستگی خارجی (ext غیرمجاز یا پکیج) نیست — ext-gd مجاز و اختیاری است",
+        "critical: مسیر ورودی against path traversal اعتبارسنجی می‌شود",
+        "high: پردازش batch با مدیریت memory (تخلیه/بازسازی منبع) دارد",
+        "high: خروجی CSV درست escape می‌شود (fputcsv)",
+        "medium: خروجی‌ها و کدهای exit معنادار (0/1) دارند",
+        "medium: PHPDoc سه‌فیلدی (@package/@version/@security-level) موجود است"
+      ],
+      "files": []
+    },
+    {
+      "id": 5,
+      "title": "حذف Composer از پروژه موجود",
+      "prompt": "پروژه‌ام الان با Composer و چند پکیج کار می‌کند. می‌خواهم وابستگی‌ها را حذف کنم و به PHP خالص برسانم — امکانش هست؟",
+      "expected_output": "تحلیل هر وابستگی: (۱) معادل scaffold دستی، (۲) کد vendored تک‌فایلی با بررسی لایسنس، (۳) ناممکن/غیرمنطقی؛ نقشه راه مهاجرت مرحله‌ای؛ ADR برای هر تصمیم؛ صادقانه درباره مواردی که منطقی نیست",
+      "rubric": [
+        "critical: هیچ راه‌حل پیشنهادی مرز PHP خالص را نمی‌شکند یا محدودیت صریح اعلام می‌شود",
+        "critical: برای هر وابستگی یکی از سه مسیر (scaffold/vendored/ناممکن) مشخص شده",
+        "high: لایسنس کد vendored بررسی و ثبت شده (GPL در خروجی MIT ممنوع)",
+        "high: نقشه راه مهاجرت مرحله‌ای با ترتیب ریسک ارائه شده",
+        "medium: هر تصمیم ADR دارد"
+      ],
+      "files": []
+    },
+    {
+      "id": 6,
+      "title": "تحریک مشورت MCP (بدون توهم API)",
+      "prompt": "به فروشگاهم درگاه پرداخت زرین‌پل را وصل کن و برای پیامک هم از کاوه‌نگار استفاده کن.",
+      "expected_output": "تشخیص API خارجی → مشورت اجباری Context7 (resolve-library-id سپس query-docs با زبان PHP و نسخه)؛ در نبود دسترسی: اعلام محدودیت، نه حدس؛ ارتباط فقط از http-client.php با timeout/retry؛ پاسخ سرویس با Validator اعتبارسنجی؛ کلیدها از env",
+      "rubric": [
+        "critical: پیش از تولید کد، مسیر مشورت MCP طی شده یا محدودیت صریح اعلام شده",
+        "critical: هیچ امضای API از حدس (بدون منبع) تولید نشده",
+        "high: ارتباط HTTP از scaffolds/http-client.php با timeout و retry است",
+        "high: پاسخ سرویس بیرونی قبل از استفاده اعتبارسنجی می‌شود",
+        "high: کلیدهای API از env خوانده می‌شوند نه هاردکد",
+        "medium: رفتار degradation سرویس قطع تعریف شده (بدون crash)"
+      ],
+      "files": []
+    },
+    {
+      "id": 7,
+      "title": "سامانه ورود/ثبت‌نام امن",
+      "prompt": "یک سامانه ثبت‌نام و ورود با PHP خالص می‌خواهم: رمز، ورود، خروج، فراموشی رمز با ایمیل بازیابی.",
+      "expected_output": "Argon2id؛ session امن سه‌پرچمی؛ session_regenerate_id(true) پس از ورود؛ توکن CSRF در همه فرم‌ها؛ توکن بازیابی یک‌بارمصرف با انقضا و هش‌شده در دیتابیس؛ Rate limit ورود و بازیابی؛ نامه با متن ساده و لینک امن",
+      "rubric": [
+        "critical: password_hash(PASSWORD_ARGON2ID) و password_verify",
+        "critical: session_regenerate_id(true) پس از ورود موفق",
+        "critical: توکن بازیابی یک‌بارمصرف با انقضا و ذخیره هش‌شده است",
+        "critical: rate limit روی ورود و درخواست بازیابی",
+        "high: کوکی نشست HttpOnly+Secure+SameSite=Strict",
+        "high: همه فرم‌ها CSRF دارند",
+        "medium: پاسخ خطای ورود عمومی است (نشان‌ندادن اینکه نام کاربری موجود بود یا نه)"
+      ],
+      "files": []
+    },
+    {
+      "id": 8,
+      "title": "عدم فعال‌شدن روی غیر PHP",
+      "prompt": "یک اسکریپت پایتون برای پاک‌سازی فایل‌های موقت بنویس و بعدش یک API با Node.js و Express.",
+      "expected_output": "عدم فعال‌شدن مهارت؛ اعلام کوتاه «این مهارت مخصوص PHP است»؛ بدون تولید کد PHP بی‌مورد؛ ادامه کمک در چارچوب امکانات عمومی",
+      "rubric": [
+        "critical: مهارت فعال نشده و قیدهای PHP اعمال نشده",
+        "critical: هیچ فایل PHP تولید نشده",
+        "medium: پاسخ کوتاه و روشن درباره دامنه مهارت"
+      ],
       "files": []
     }
   ]
