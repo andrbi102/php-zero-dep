@@ -18,4 +18,4 @@
 - نسخه مهارت: **0.0.1** (همه مستندات). نسخه مدل سازمانی: **2.0**.
 - شمارش‌های سازمانی (۷۹ نقش / ۳۷۲ وظیفه اتمیک / ۴۲ مجوز) از `RULES.json` تولید می‌شوند — هرگز هاردکد نشوند.
 
-[0.0.1]: https://example.com/php-zero-dep/releases/tag/v0.0.1
+[0.0.1]: https://github.com/andrbi102/php-zero-dep/releases/tag/v0.0.1
