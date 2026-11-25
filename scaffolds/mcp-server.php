@@ -12,7 +12,7 @@ declare(strict_types=1);
  * و کد PHP تولیدشده هیچ import از MCP ندارد (SPEC بخش ۱۱).
  *
  * @package PhpZeroDep\Scaffolds
- * @version 0.0.1
+ * @version 0.0.2
  * @security-level tool
  */
 final class McpServer

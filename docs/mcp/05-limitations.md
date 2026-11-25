@@ -17,4 +17,4 @@ Local نیازمند Node.js (npx)؛ Remote نیازمند شبکه (و کلید
 
 ---
 
-> مهارت `php-zero-dep` — نسخه `0.0.1`
+> مهارت `php-zero-dep` — نسخه `0.0.2`

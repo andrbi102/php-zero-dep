@@ -1,6 +1,6 @@
 # پروتکل مشورت (۷ گام + SLA)
 
-> نسخه مهارت: **0.0.1** | آرشیو: consultation/log/ | قالب: templates/consultation-template.md
+> نسخه مهارت: **0.0.2** | آرشیو: consultation/log/ | قالب: templates/consultation-template.md
 
 ## چرا مشورت؟
 
@@ -58,4 +58,4 @@
 
 ---
 
-> مهارت `php-zero-dep` — نسخه `0.0.1`
+> مهارت `php-zero-dep` — نسخه `0.0.2`

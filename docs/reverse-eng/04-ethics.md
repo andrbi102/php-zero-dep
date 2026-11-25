@@ -18,4 +18,4 @@ Council Compliance — T-004). ۳) REA روی سرویس دیگران فقط د�
 
 ---
 
-> مهارت `php-zero-dep` — نسخه `0.0.1`
+> مهارت `php-zero-dep` — نسخه `0.0.2`

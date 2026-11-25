@@ -34,4 +34,4 @@ final class EventDispatcher {
 
 ---
 
-> مهارت `php-zero-dep` — نسخه `0.0.1`
+> مهارت `php-zero-dep` — نسخه `0.0.2`

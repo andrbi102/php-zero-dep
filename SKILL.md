@@ -1,6 +1,6 @@
 ---
 name: php-zero-dep
-version: 0.0.1
+version: 0.0.2
 description: >-
   تولید کد PHP آماده production بدون هیچ وابستگی خارجی — بدون Composer، بدون
   vendor، بدون فریمورک؛ فقط PHP 8.2+ و افزونه‌های هسته، با امنیت‌محوری کامل
@@ -16,7 +16,7 @@ description: >-
 
 # 🐘 php-zero-dep — مهارت PHP بدون وابستگی
 
-> **نسخه مهارت: `0.0.1`** | سند مبدأ: `SPEC.md` | مجوز: MIT
+> **نسخه مهارت: `0.0.2`** | سند مبدأ: `SPEC.md` | مجوز: MIT
 > فلسفه: **بازآفرینی آگاهانه چرخ** — اتولودر، روتر، DI، Event Bus همه
 > دست‌نویس و خودکفا؛ اما هرگز به سمت وابستگی خارجی منحرف نمی‌شویم.
 
@@ -210,15 +210,17 @@ PHP 8.3 داره؛ دیتابیس MySQL.» اجرای مهارت:
 | استقرار | `docs/deployment/` (۵) + `docs/runtime/` (۲) + `docs/infrastructure/` (۴) |
 | عملکرد | `docs/performance/` (۵) |
 | ابزار dev | `docs/tooling/` (۶) |
-| فرانت‌اند | `docs/frontend/` (۷) |
-| کاربردها | `docs/use-cases/` (۶) |
+| فرانت‌اند | `docs/frontend/` (۹) |
+| کاربردها | `docs/use-cases/` (۶ عمودی + ۲۰ دسته/۳۶۰ کاربرد + `00-catalog.md`) |
 | محدودیت‌ها | `docs/vision/` (۳) — همیشه صادقانه |
 | مهندسی معکوس | `docs/reverse-eng/` (۴) |
-| مدل سازمانی | `docs/org/` (۱۲ فایل + زیرپوشه‌ها) |
+| مدل سازمانی | `docs/org/` (۱۳ فایل + زیرپوشه‌ها — `12-worker-orchestration.md` در v0.0.۲) |
+| مراجع الگوبرداری (v0.0.۲) | `docs/references/` (۵ مخزن مرجع + نمایه) |
+| محیط توسعهٔ PHP (v0.0.۲) | `docs/dev-environment/` (`PHP_DEV_ENV_SETUP.md` + نمایه) |
 | کاتالوگ مخازن تأییدشده | `docs/catalog.md` (بازبینی سه‌ماهه: `scripts/check-links.sh`) |
 | سند مبدأ کامل | `SPEC.md` |
 
-### scaffolds/ (۲۵ اسکلت + tools + workers) — هرکدام چه می‌کند
+### scaffolds/ (۳۰ اسکلت + tools + workers) — هرکدام چه می‌کند
 
 | دسته | فایل‌ها |
 |------|---------|
@@ -229,7 +231,8 @@ PHP 8.3 داره؛ دیتابیس MySQL.» اجرای مهارت:
 | عملکرد/زیرساخت | `cache.php` (PSR-16 مانند)، `rate-limiter.php` (پنجره ثابت/لغزان)، `http-client.php` (cURL با timeout/retry/traceparent)، `tracing.php` (Manual Tracing سازگار W3C)، `serverless-handler.php` (اجرای بدون سرور) |
 | مشاهده/خطا | `logger.php` (سطح‌بندی + زمینه)، `error-handler.php` (تبدیل خطا به استثنای قابل مشاهده) |
 | MCP | `mcp-server.php` (JSON-RPC روی stdio) + `tools/hello.php` (نمونه ابزار با اعتبارسنجی ورودی) |
-| سازمان | `workers/` (۷۹ قرارداد + `_template.md`) |
+| سازمان | `workers/` (۷۹ قرارداد + `_template.md` — بخش ۹ ارکستراسیون در v0.0.۲) |
+| ارکستراسیون/پالایش (v0.0.۲) | `worker-orchestrator.php` (delegate/kanban/review/moa/estop — الگوی hermes)، `humanizer.php` (آشکارساز «بوی AI» — الگوی humanizer)، `web-fetch.php` (واکشی+HTML→markdown — الگوی firecrawl)، `design-tokens.php` (توکن سه‌لایه — الگوی ui-ux-pro-max) |
 
 **قاعده استفاده:** هرگز scaffold را از صفر بازنویسی نکن؛ کپی، تطبیق نام‌ها،
 افزودن PHPDoc محصول. هر scaffold با `declare(strict_types=1)` شروع می‌شود
@@ -269,7 +272,7 @@ bash scripts/check-links.sh     # بازبینی منابع (هر ۳ ماه)
 
 ## ۷. نسخه‌گذاری و بازبینی
 
-- نسخه مهارت: **0.0.1** (این فایل، `VERSION`، `CHANGELOG.md` و همه مستندات یکدست).
+- نسخه مهارت: **0.0.2** (این فایل، `VERSION`، `CHANGELOG.md` و همه مستندات یکدست).
 - SemVer + Keep a Changelog + Git tag در هر انتشار (Release Manager — T-005).
 - منابع کاتالوگ هر ۳ ماه با `scripts/check-links.sh` بازبینی می‌شوند؛ ادعاهای
   عددی فقط با برچسب «خوداظهاری» می‌مانند.

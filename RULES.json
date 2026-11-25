@@ -1,6 +1,6 @@
 {
   "skill": "php-zero-dep",
-  "skill_version": "0.0.1",
+  "skill_version": "0.0.2",
   "org_model_version": "2.0",
   "generated": "2026-11-25",
   "language": "fa",
@@ -1149,5 +1149,71 @@
         ]
       }
     ]
+  },
+  "references": [
+    {
+      "repo": "NousResearch/hermes-agent",
+      "url": "https://github.com/NousResearch/hermes-agent",
+      "license": "MIT",
+      "used_for": "worker orchestration model",
+      "doc": "docs/references/01-hermes-agent.md"
+    },
+    {
+      "repo": "blader/humanizer",
+      "url": "https://github.com/blader/humanizer",
+      "license": "MIT",
+      "used_for": "AI-smell prose catalog",
+      "doc": "docs/references/02-humanizer.md"
+    },
+    {
+      "repo": "firecrawl/firecrawl",
+      "url": "https://github.com/firecrawl/firecrawl",
+      "license": "AGPL-3.0 (server) / MIT (SDKs)",
+      "used_for": "web-fetch + HTML->markdown pattern",
+      "doc": "docs/references/03-firecrawl.md",
+      "note": "pattern only, no code copied (AGPL)"
+    },
+    {
+      "repo": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+      "license": "MIT",
+      "used_for": "design-token three-layer architecture",
+      "doc": "docs/references/04-ui-ux-pro-max.md"
+    },
+    {
+      "repo": "nvidia/skillspector",
+      "url": "https://github.com/nvidia/skillspector",
+      "license": "Apache-2.0",
+      "used_for": "scored skill self-audit discipline",
+      "doc": "docs/references/05-skillspector.md"
+    }
+  ],
+  "v0_0_2_additions": {
+    "new_scaffolds": [
+      "worker-orchestrator.php",
+      "humanizer.php",
+      "web-fetch.php",
+      "design-tokens.php"
+    ],
+    "new_docs_dirs": [
+      "docs/references/",
+      "docs/dev-environment/"
+    ],
+    "new_adrs": [
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25
+    ],
+    "use_case_categories": 20,
+    "use_case_subitems": "~360",
+    "org_counts_unchanged": true
   }
 }

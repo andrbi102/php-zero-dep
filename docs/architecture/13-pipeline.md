@@ -17,4 +17,4 @@ next را می‌گیرد. `scaffolds/pipeline.php` با `callable` خالص ز�
 
 ---
 
-> مهارت `php-zero-dep` — نسخه `0.0.1`
+> مهارت `php-zero-dep` — نسخه `0.0.2`

@@ -10,7 +10,7 @@ declare(strict_types=1);
  * پیاده‌سازی منحنی بیضوی از صفر در production ممنوع.
  *
  * @package PhpZeroDep\Scaffolds
- * @version 0.0.1
+ * @version 0.0.2
  * @security-level security
  */
 final class Crypto

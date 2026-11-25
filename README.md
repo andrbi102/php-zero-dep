@@ -4,11 +4,11 @@
 
 **مهارت PHP بدون وابستگی — برای ایجنت‌های کدنویسی و انسان‌هایی که از Composer خسته شده‌اند**
 
-[![Version](https://img.shields.io/badge/version-0.0.1-2ea44f)](https://github.com/andrbi102/php-zero-dep/releases/tag/v0.0.1)
+[![Version](https://img.shields.io/badge/version-0.0.2-2ea44f)](https://github.com/andrbi102/php-zero-dep/releases/tag/v0.0.2)
 [![PHP](https://img.shields.io/badge/PHP-8.2%2B-777BB4?logo=php&logoColor=white)](https://www.php.net/supported-versions.php)
 [![Dependencies](https://img.shields.io/badge/dependencies-0-brightgreen)](#چرا-بدون-composer)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
-[![Files](https://img.shields.io/badge/%D9%81%D8%A7%DB%8C%D9%84-360-informational)](#نقشه-بسته)
+[![Files](https://img.shields.io/badge/%D9%81%D8%A7%DB%8C%D9%84-410-informational)](#نقشه-بسته)
 
 </div>
 
@@ -106,17 +106,17 @@ git clone https://github.com/andrbi102/php-zero-dep.git
 | `AGENTS.md` | ۱۵ قاعده سازمانی + قیدهای سخت برای ایجنت |
 | `MCP.md` | پروتکل مشورت مستندات (Context7، Tier-1/2) — ضد توهم API |
 | `SPEC.md` | سند مبدأ کامل — هر چیزی که بقیه خلاصه‌اش هستند |
-| `docs/` | **۲۱۴ سند مرجع در ۱۷ دسته**: معماری (۱۷)، امنیت (۸)، منحنی بیضوی (۵)، دیتابیس (۵)، PHP مدرن (۵)، استقرار (۵)، عملکرد (۵)، ابزار (۶)، فرانت‌اند (۷)، کاربردها (۶)، مهندسی معکوس (۴)، ساختار داده (۴)، زیرساخت (۴)، runtime (۲)، MCP (۵)، چشم‌انداز (۳)، مدل سازمانی (۱۲۲) + [`catalog.md`](docs/catalog.md) |
-| `scaffolds/` | **۲۶ فایل PHP خودکفا**: اتولودر، روتر، DI Container، Event Dispatcher، Command/Query Bus، Pipeline، Session، CSRF، Validator، Crypto، Cache، Rate Limiter، HTTP Client، Tracing، Logger، MCP Server و … |
+| `docs/` | **۳۶۰ سند مرجع در ۲۰ دسته**: معماری (۱۷)، امنیت (۸)، منحنی بیضوی (۵)، دیتابیس (۵)، PHP مدرن (۵)، استقرار (۵)، عملکرد (۵)، ابزار (۶)، فرانت‌اند (۹)، کاربردها (۲۷ = ۶ عمودی + ۲۰ دسته/۳۶۰ کاربرد + کاتالوگ)، مهندسی معکوس (۴)، ساختار داده (۴)، زیرساخت (۴)، runtime (۲)، MCP (۵)، چشم‌انداز (۳)، مدل سازمانی (۱۳+زیرپوشه)، **مراجع الگوبرداری (۵+v0.0.۲)**، **محیط توسعهٔ PHP (v0.0.۲)** + [`catalog.md`](docs/catalog.md) |
+| `scaffolds/` | **۳۰ فایل PHP خودکفا**: اتولودر، روتر، DI Container، Event Dispatcher، Command/Query Bus، Pipeline، Session، CSRF، Validator، Crypto، Cache، Rate Limiter، HTTP Client، Tracing، Logger، MCP Server، **worker-orchestrator، humanizer، web-fetch، design-tokens (v0.0.۲)** و … |
 | `scaffolds/workers/` | **۷۹ قرارداد Worker** کامل (T-001 تا T-079) + قالب ۸ بخشی |
-| `examples/` | **۹ مثال قابل اجرا** — `php examples/01-router-demo.php` |
+| `examples/` | **۱۰ مثال قابل اجرا** — `php examples/01-router-demo.php` |
 | `tests/` | smoke-test + security-audit (ممیزی ایستا: توابع ممنوع، strict_types، رد Composer) |
-| `ADR/` | **۱۴ تصمیم معماری** مستند با قالب MADR + قالب خالی |
-| `scripts/` | `verify_org.py` (گارد رگرسیون شمارش‌ها) + `check-links.sh` (بازبینی سه‌ماهه منابع) |
+| `ADR/` | **۲۵ تصمیم معماری** مستند با قالب MADR (۱۴ اصلی + ۱۱ در v0.0.۲) + قالب خالی |
+| `scripts/` | `verify_org.py` (گارد رگرسیون شمارش‌ها) + `check-links.sh` (بازبینی سه‌ماهه منابع) + **`skill_score.py`** (ممیزی امتیازی ۰-۱۰۰ — الگوی skillspector، v0.0.۲) |
 | `evals/` | سناریوهای سنجش کیفیت مهارت |
 | `council-log.md` / `lessons-learned.md` | صورت‌جلسات شورا و درس‌های واقعی آموخته‌شده |
 
-**جمع کل: ۳۶۰ فایل، ۳۱۷ سند Markdown، ۳۷ فایل PHP — همه خودکفا.**
+**جمع کل: ۴۱۰ فایل، ۳۶۰ سند Markdown، ۴۲ فایل PHP — همه خودکفا.**
 
 ## مثال‌ها — در یک نگاه
 
@@ -193,11 +193,14 @@ bash scripts/check-links.sh     # بازبینی HTTP 200 لینک‌های کا
 
 **php-zero-dep** is a zero-dependency PHP skill for AI coding agents:
 production-ready PHP with only PHP 8.2+ and core extensions — no Composer,
-no vendor directory. 26 self-contained PHP scaffolds (autoloader, router,
-DI, event bus, PDO layer, HMAC-signed CSRF, Argon2id, secure sessions),
-214 reference docs in 17 categories, 79 AI-worker contracts, 14 architecture
-decision records, 9 runnable examples, smoke + security tests. Security is
-default, not a plugin. The docs are in Persian; the code speaks English.
+no vendor directory. 30 self-contained PHP scaffolds (autoloader, router,
+DI, event bus, PDO layer, HMAC-signed CSRF, Argon2id, secure sessions, plus
+v0.0.2 worker-orchestrator/humanizer/web-fetch/design-tokens), 360 reference
+docs in 20 categories (incl. a 20-category/~360-use-case taxonomy and 5 borrowed
+reference architectures), 79 AI-worker contracts with hermes-derived orchestration,
+25 architecture decision records, 10 runnable examples, smoke + security
+tests + a scored skill self-audit. Security is default, not a plugin. The docs are
+in Persian; the code speaks English.
 
 ## مجوز
 

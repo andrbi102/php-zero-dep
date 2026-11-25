@@ -1,6 +1,6 @@
 # قالب قرارداد Worker
 
-> نسخه مهارت: **0.0.1** | نسخه کامل با راهنمای پرکردن + نمونه تکمیل‌شده: scaffolds/workers/_template.md
+> نسخه مهارت: **0.0.2** | نسخه کامل با راهنمای پرکردن + نمونه تکمیل‌شده: scaffolds/workers/_template.md
 
 ```markdown
 # Worker Contract — {ROLE_EN} ({ROLE_ID})

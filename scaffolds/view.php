@@ -9,7 +9,7 @@ declare(strict_types=1);
  * htmlspecialchars(..., ENT_QUOTES, 'UTF-8').
  *
  * @package PhpZeroDep\Scaffolds
- * @version 0.0.1
+ * @version 0.0.2
  * @security-level security
  */
 final class View

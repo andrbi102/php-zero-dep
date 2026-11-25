@@ -6,7 +6,7 @@ declare(strict_types=1);
  * Pipeline مدل onion — زیر ۳۰ خط، با callable خالص
  *
  * @package PhpZeroDep\Scaffolds
- * @version 0.0.1
+ * @version 0.0.2
  * @security-level core
  */
 final class Pipeline

@@ -1,6 +1,6 @@
 # قالب ثبت مشورت (C1..C7)
 
-> نسخه مهارت: **0.0.1** | پروتکل کامل: `07-consultation.md` | نمونه تکمیل‌شده: `consultation/log/2026-11-25-sod-release-exception.md`
+> نسخه مهارت: **0.0.2** | پروتکل کامل: `07-consultation.md` | نمونه تکمیل‌شده: `consultation/log/2026-11-25-sod-release-exception.md`
 
 ## قالب
 

@@ -8,7 +8,7 @@ declare(strict_types=1);
  * کلید = ترکیب هویت + عملیات (مثال: 'login:ip:1.2.3.4').
  *
  * @package PhpZeroDep\Scaffolds
- * @version 0.0.1
+ * @version 0.0.2
  * @security-level security
  */
 final class RateLimiter

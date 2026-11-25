@@ -9,7 +9,7 @@ declare(strict_types=1);
  * در حالت debug نمایش داده می‌شود (و escape می‌شود).
  *
  * @package PhpZeroDep\Scaffolds
- * @version 0.0.1
+ * @version 0.0.2
  * @security-level security
  */
 final class ErrorHandler

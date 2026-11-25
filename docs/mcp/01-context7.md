@@ -19,4 +19,4 @@ Remote (بدون Node.js): `https://mcp.context7.com/mcp` با هدر
 
 ---
 
-> مهارت `php-zero-dep` — نسخه `0.0.1`
+> مهارت `php-zero-dep` — نسخه `0.0.2`

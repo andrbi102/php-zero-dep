@@ -6,7 +6,7 @@ declare(strict_types=1);
  * کلاینت HTTP با ext-curl — timeout و retry با backoff ثابت
  *
  * @package PhpZeroDep\Scaffolds
- * @version 0.0.1
+ * @version 0.0.2
  * @security-level infra
  */
 final class HttpClient

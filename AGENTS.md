@@ -1,6 +1,6 @@
 # AGENTS.md — قواعد ایجنت‌های php-zero-dep
 
-> نسخه مهارت: **0.0.1** | مدل سازمانی: v2.0 | منبع حقیقت شمارش‌ها: `RULES.json`
+> نسخه مهارت: **0.0.2** | مدل سازمانی: v2.0 | منبع حقیقت شمارش‌ها: `RULES.json`
 >
 > این فایل «قانون اساسی» ایجنت‌هاست: ۱۵ قاعده سازمانی (بخش A) و ۱۳ قید
 > تولید کد (بخش B) که در هیچ فازی و هیچ پروفایلی تعطیل نمی‌شوند. متن
@@ -116,3 +116,11 @@ HTTP API مستند آن استفاده می‌کنیم.» (۴) اگر برگش�
 - گردش کار کامل و مطالعه موردی: `SKILL.md` بخش ۳
 - چک‌لیست پذیرش: `SKILL.md` بخش درگاه‌های کیفیت + `SPEC.md` بخش ۱۴
 - مشورت مستندات: `MCP.md`
+
+### F. افزوده‌های v0.0.2 (الگوبرداری از ۵ مخزن مرجع)
+
+- مدل ارکستراسیون Worker (delegate/kanban/review/moa/estop) از hermes-agent به بخش ۹ قالب `_template.md` اضافه شد — **بدون نقش جدید** (۷۹/۳۷۲/۴۲ دست‌نخورده). جزئیات: `docs/org/12-worker-orchestration.md`، `scaffolds/worker-orchestrator.php`.
+- چهار اسکلت جدید: `worker-orchestrator.php`، `humanizer.php`، `web-fetch.php`، `design-tokens.php` — الگوبرداری‌شده از hermes/humanizer/firecrawl/ui-ux-pro-max.
+- پنج سند مرجع در `docs/references/` + بخش ۶ `docs/catalog.md` + آرایهٔ `references` در `RULES.json`.
+- ممیزی امتیازی `scripts/skill_score.py` (الگوی skillspector): نمرهٔ ۰-۱۰۰ + completeness + JSON + exit ۰/۱/۲.
+- قاعدهٔ الگوبرداری (صداقت مهندسی): فقط *ایدهٔ ساختاری*؛ هیچ کد AGPL/GPL کپی نشد؛ هیچ وابستگی اضافه نشد (قید ۱-۲). درس L-005 در `lessons-learned.md`.

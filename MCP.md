@@ -1,6 +1,6 @@
 # MCP.md — یکپارچه‌سازی Model Context Protocol
 
-> نسخه مهارت: **0.0.1** | MCP یک **پروتکل** است نه پکیج PHP — سرور در فرایند
+> نسخه مهارت: **0.0.2** | MCP یک **پروتکل** است نه پکیج PHP — سرور در فرایند
 > جداگانه اجرا می‌شود و کد PHP تولیدشده هیچ import از MCP ندارد.
 >
 > **چرا این فایل اهمیت حیاتی دارد:** ایجنت API کتابخانه‌ها را «به‌خاطر
@@ -102,3 +102,14 @@ Local نیازمند Node.js؛ Remote نیازمند شبکه؛ context window �
 | پاسخ نیامد | مستندات ندارد | اعلام محدودیت — مطلقاً حدس نزن |
 
 جزئیات کامل: `docs/mcp/01..05`
+
+## ۶. واکشی وب سبک (v0.0.2 — الگوی firecrawl)
+
+برای کاربردهایی که نیاز به خواندن URL و تبدیل HTML به متن/markdown دارند
+(مقایسه قیمت 3.7، خلاصه‌سازی URL 13.12، crawler کاتالوگ)، از
+`scaffolds/web-fetch.php` استفاده کن: واترفال موتور (fetch اول، هشدار اگر
+JS-gated)، حذف عناصر ناخواسته (header/footer/nav/aside/ad/cookie)،
+HTML→markdown زیرمجموعه، robots.txt respect، فیلتر لینک با دلایل رد، charset
+sniff. فقط ext-curl + ext-dom + ext-mbstring — بدون وابستگی. مثال:
+`php examples/10-web-fetch-demo.php`. الگوی معماری از firecrawl (AGPL-3.0)
+الگوبرداری شد، **هیچ کد کپی نشد** (AGPL انتقالی) — جزئیات در `docs/references/03-firecrawl.md`.

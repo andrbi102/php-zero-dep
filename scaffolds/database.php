@@ -9,7 +9,7 @@ declare(strict_types=1);
  * (JSONB فقط PostgreSQL؛ در SQLite نوع JSON یعنی TEXT).
  *
  * @package PhpZeroDep\Scaffolds
- * @version 0.0.1
+ * @version 0.0.2
  * @security-level data
  */
 final class Database

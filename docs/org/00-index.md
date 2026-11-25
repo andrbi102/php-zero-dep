@@ -1,6 +1,6 @@
 # نقشه پوشه org — مدل سازمانی v2
 
-> نسخه مهارت: **0.0.1** | منبع حقیقت: `RULES.json` → `org_model` (شمارش‌ها از آنجا تولید می‌شوند)
+> نسخه مهارت: **0.0.2** | منبع حقیقت: `RULES.json` → `org_model` (شمارش‌ها از آنجا تولید می‌شوند)
 
 ## مسیرهای خواندن — کدام فایل، کِی؟
 
@@ -14,6 +14,7 @@
 | ترتیب وظایف را بچینی | `09-dag.md` ← `atomic-tasks/by-phase/F*.md` |
 | پروفایل solo/full انتخاب کنی | `10-profiles.md` |
 | مطمئن شوی کسی هم می‌سازد هم تأیید نمی‌کند | `11-sod.md` ← `scripts/verify_org.py` |
+| بدانی Worker چگونه هم‌نفس می‌شوند (delegate/kanban/review/estop) | `12-worker-orchestration.md` ← `scaffolds/worker-orchestrator.php` ← `docs/references/01-hermes-agent.md` |
 | فهرست وظایف یک نقش را ببینی | `atomic-tasks/by-role/T-NNN.md` (کارت کامل نقش) |
 | فهرست وظایف یک فاز را ببینی | `atomic-tasks/by-phase/F*.md` |
 
@@ -37,6 +38,7 @@ docs/org/
 ├── 09-dag.md              ← گراف وابستگی وظایف (DAG)
 ├── 10-profiles.md         ← پروفایل‌های full و solo
 ├── 11-sod.md              ← تفکیک وظایف SoD-1..5 (با استثنای مستند release)
+├── 12-worker-orchestration.md ← مدل ارکستراسیون Worker (الگوی hermes-agent) [v0.0.2]
 ├── roles/by-level/        ← جزئیات نقش‌ها به تفکیک سطح (۶ فایل)
 ├── atomic-tasks/by-role/  ← ۷۹ فایل (کارت کامل هر نقش: وظایف + مجوزها)
 ├── atomic-tasks/by-phase/ ← ۱۰ فایل (هر فاز: وظایف همان فاز)
@@ -62,4 +64,4 @@ docs/org/
 
 ---
 
-> مهارت `php-zero-dep` — نسخه `0.0.1`
+> مهارت `php-zero-dep` — نسخه `0.0.2`

@@ -15,4 +15,4 @@ GraphML (XML با namespace yEd) برای ابزارهای دسکتاپ؛ Cytosc
 
 ---
 
-> مهارت `php-zero-dep` — نسخه `0.0.1`
+> مهارت `php-zero-dep` — نسخه `0.0.2`

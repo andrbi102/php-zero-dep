@@ -9,7 +9,7 @@ declare(strict_types=1);
  * مقایسه زمان-ثابت با hash_equals.
  *
  * @package PhpZeroDep\Scaffolds
- * @version 0.0.1
+ * @version 0.0.2
  * @security-level security
  */
 final class Csrf

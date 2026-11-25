@@ -7,7 +7,7 @@ declare(strict_types=1);
  * اجرا: php examples/05-pipeline-demo.php
  *
  * @package PhpZeroDep\Examples
- * @version 0.0.1
+ * @version 0.0.2
  */
 require __DIR__ . '/../scaffolds/pipeline.php';
 

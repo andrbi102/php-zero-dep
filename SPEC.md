@@ -89,7 +89,7 @@ principles and organizational model defined below.
 7. docs/performance/ (OPcache, caching, memory, profiling)
 8. docs/tooling/ (debug, error, static analysis, PHPUnit, Playwright)
 9. docs/frontend/ (sessions, cookies, forms, CSRF, UI, A11y)
-10. docs/use-cases/ (website, ecommerce, REST, CMS, CLI, blog)
+10. docs/use-cases/ (website, ecommerce, REST, CMS, CLI, blog + v0.0.۲: 20-category/~360-use-case taxonomy with 00-catalog.md)
 11. docs/vision/ (limitations, pure PHP, external service)
 12. docs/database/ (types, PDO, modern features, optimization)
 13. docs/modern-php/ (8.2–8.6, version detection)
@@ -571,10 +571,12 @@ php-zero-dep-skill/
 │   ├── performance/         ← ۵ فایل
 │   ├── tooling/             ← ۶ فایل
 │   ├── frontend/            ← ۷ فایل
-│   ├── use-cases/           ← ۶ فایل
+│   ├── use-cases/           ← ۲۷ فایل (۶ عمودی + ۲۰ دسته + کاتالوگ) [v0.0.۲]
 │   ├── vision/              ← ۳ فایل
 │   ├── mcp/                 ← ۵ فایل
-│   └── org/                 ← **۱۲ فایل + ۶ زیرپوشه (بخش ۱۶)**
+│   ├── org/                 ← **۱۳ فایل + ۶ زیرپوشه (۱۲-worker-orchestration.md در v0.0.۲)**
+│   ├── references/          ← **۵ سند مرجع الگوبرداری (v0.0.۲)**
+│   └── dev-environment/     ← **PHP_DEV_ENV_SETUP + نمایه (v0.0.۲)**
 │
 ├── scaffolds/
 │   ├── autoloader.php / router.php / container.php
@@ -956,6 +958,6 @@ Limitations documented: 16 items
 - ادعاهای عددی (latency، req/s و…) فقط با برچسب «خوداظهاری» یا بنچمارک مستقل قابل بازتولید بمانند.
 - لایسنس کدهای vendored در هر بازبینی کنترل شود (ستون «لایسنس» کاتالوگ).
 
-**نسخه:** `0.0.1` | **تاریخ:** 2026-11-25 | **مجوز:** MIT
+**نسخه:** `0.0.2` | **تاریخ:** 2026-11-25 | **مجوز:** MIT
 
 > **یادداشت پایانی:** این فایل یک «پرامپت زنده» است. هر بار مخزن جدیدی کشف شد، به کاتالوگ اضافه کنید و `VERSION` را ارتقا دهید. فلسفه «بازآفرینی آگاهانه چرخ» یعنی مهارت شما **همیشه در حال تکامل** است — اما هرگز به سمت وابستگی خارجی منحرف نمی‌شود. محدودیت‌ها را صادقانه مستند کنید؛ یک مهارت خوب، محدودیت‌های خود را می‌شناسد — و یک مهارت عالی، **سازمان خود را نیز می‌شناسد**.

@@ -1,6 +1,6 @@
 # مرز PHP خالص
 
-> نسخه مهارت: **0.0.1** | فهرست افزونه‌های مجاز: `RULES.json` → constraints.allowed_extensions
+> نسخه مهارت: **0.0.2** | فهرست افزونه‌های مجاز: `RULES.json` → constraints.allowed_extensions
 
 ## تعریف مرز در یک پرسش
 
@@ -37,4 +37,4 @@
 
 ---
 
-> مهارت `php-zero-dep` — نسخه `0.0.1`
+> مهارت `php-zero-dep` — نسخه `0.0.2`

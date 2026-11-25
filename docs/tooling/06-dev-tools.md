@@ -16,4 +16,4 @@ mago (carthage-software)، Phan — همه فقط dev و ترجیحاً phar ت�
 
 ---
 
-> مهارت `php-zero-dep` — نسخه `0.0.1`
+> مهارت `php-zero-dep` — نسخه `0.0.2`

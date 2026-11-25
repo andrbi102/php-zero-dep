@@ -9,7 +9,7 @@ declare(strict_types=1);
  * دیتابیس بیرونی نگه دارید، نه در فایل.
  *
  * @package PhpZeroDep\Scaffolds
- * @version 0.0.1
+ * @version 0.0.2
  * @security-level infra
  */
 final class ServerlessHandler

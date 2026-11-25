@@ -1,6 +1,6 @@
 # پروفایل‌های اجرا (full / solo)
 
-> نسخه مهارت: **0.0.1** | منبع: RULES.json → org_model.profiles
+> نسخه مهارت: **0.0.2** | منبع: RULES.json → org_model.profiles
 
 ## دو پروفایل
 
@@ -55,4 +55,4 @@ F7 امضای `security-signoff.md` مستقل؛ F8 مستندسازی تیمی�
 
 ---
 
-> مهارت `php-zero-dep` — نسخه `0.0.1`
+> مهارت `php-zero-dep` — نسخه `0.0.2`

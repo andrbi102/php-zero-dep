@@ -17,4 +17,4 @@ command/query خودش را با `scaffolds/command-bus.php` و `query-bus.php` 
 
 ---
 
-> مهارت `php-zero-dep` — نسخه `0.0.1`
+> مهارت `php-zero-dep` — نسخه `0.0.2`

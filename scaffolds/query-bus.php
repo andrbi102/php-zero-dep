@@ -6,7 +6,7 @@ declare(strict_types=1);
  * Query Bus — قرینه خواندنی CommandBus (جداسازی CQRS)
  *
  * @package PhpZeroDep\Scaffolds
- * @version 0.0.1
+ * @version 0.0.2
  * @security-level core
  */
 final class QueryBus

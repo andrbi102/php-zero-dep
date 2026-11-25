@@ -18,4 +18,4 @@ UPSERT (ON CONFLICT / ON DUPLICATE KEY)، RETURNING (PG، SQLite 3.35+).
 
 ---
 
-> مهارت `php-zero-dep` — نسخه `0.0.1`
+> مهارت `php-zero-dep` — نسخه `0.0.2`

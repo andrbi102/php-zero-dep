@@ -7,7 +7,7 @@ declare(strict_types=1);
  * اجرا: APP_KEY=test-key-32-bytes-aaaaaaaaaaaaaa php examples/02-form-csrf-demo.php
  *
  * @package PhpZeroDep\Examples
- * @version 0.0.1
+ * @version 0.0.2
  */
 require __DIR__ . '/../scaffolds/session.php';
 require __DIR__ . '/../scaffolds/csrf.php';

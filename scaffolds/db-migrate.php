@@ -13,7 +13,7 @@ declare(strict_types=1);
  *       محیط‌از-پیکربندی) فراخوانی کنید — خروجی همیشه escape می‌شود.
  *
  * @package PhpZeroDep\Scaffolds
- * @version 0.0.1
+ * @version 0.0.2
  * @security-level data
  */
 final class Migrator

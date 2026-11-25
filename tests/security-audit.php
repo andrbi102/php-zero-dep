@@ -7,7 +7,7 @@ declare(strict_types=1);
  * اجرا: php tests/security-audit.php   (خروجی 0 یعنی PASS)
  *
  * @package PhpZeroDep\Tests
- * @version 0.0.1
+ * @version 0.0.2
  */
 $root = dirname(__DIR__);
 $failed = 0;

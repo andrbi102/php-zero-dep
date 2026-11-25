@@ -147,3 +147,20 @@
 - [ ] مجوز و کپی‌رایت بررسی شده
 - [ ] خروجی برای «درک الگو» استفاده شود، نه کپی مستقیم
 - [ ] روت‌ها و پارامترها ابتدا مستند شوند، سپس کلاینت نوشته شود
+
+## ۶. مهارت‌ها و الگوهای مرجع ایجنت (v0.0.2)
+
+> پنج مخزن مرجع که مهارت `php-zero-dep` در v0.0.2 از آن‌ها الگوبرداری کرده است.
+> جزئیات کاملِ هر الگو (چه الگوبرداری شد، چه نشد) در [`docs/references/`](references/00-index.md).
+
+| مخزن | لینک | چه الگوبرداری شد | لایسنس | سند |
+|------|------|------------------|--------|-----|
+| **NousResearch/hermes-agent** | [github.com/NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent) | مدل ارکستراسیون Worker (delegate/kanban/review/moa/estop, IterationBudget, DenialCircuitBreaker, handoff, capability token HMAC) — الگوبرداری کامل برای بخش ورکرها | MIT | [references/01](references/01-hermes-agent.md) |
+| **blader/humanizer** | [github.com/blader/humanizer](https://github.com/blader/humanizer) | کاتالوگ ۲۶-الگویی «بوی AI» + پایپلاین mark→draft→claim-check برای متن UI تولیدشده | MIT | [references/02](references/02-humanizer.md) |
+| **firecrawl/firecrawl** | [github.com/firecrawl/firecrawl](https://github.com/firecrawl/firecrawl) | واترفال موتور، حذف عناصر ناخواسته، robots.txt، فیلتر لینک، charset — در PHP خالص (`scaffolds/web-fetch.php`) | AGPL-3.0/MIT | [references/03](references/03-firecrawl.md) |
+| **nextlevelbuilder/ui-ux-pro-max-skill** | [github.com/nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | معماری توکن سه‌لایه + صدور دوگانه (PHP/JSON/CSS) از یک resolver | MIT | [references/04](references/04-ui-ux-pro-max.md) |
+| **nvidia/skillspector** | [github.com/nvidia/skillspector](https://github.com/nvidia/skillspector) | ممیزی امتیازی ۰-۱۰۰، completeness ledger، baseline suppression، قرارداد JSON (`scripts/skill_score.py`) | Apache-2.0 | [references/05](references/05-skillspector.md) |
+
+**قاعدهٔ الگوبرداری:** فقط *ایدهٔ ساختاری* الگوبرداری شد؛ هیچ کد از مخازن
+AGPL/GPL کپی نشده (انتقالی بودن رعایت شد). همهٔ الگوها در PHP خالص بازنویسی
+شدند — هیچ وابستگی اضافه نشد (قید ۱-۲ نقض‌ناپذیر).

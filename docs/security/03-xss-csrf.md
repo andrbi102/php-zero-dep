@@ -18,4 +18,4 @@ CSRF: توکن HMAC-SHA256(session_id, APP_KEY) با `scaffolds/csrf.php`
 
 ---
 
-> مهارت `php-zero-dep` — نسخه `0.0.1`
+> مهارت `php-zero-dep` — نسخه `0.0.2`

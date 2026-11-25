@@ -7,7 +7,7 @@ declare(strict_types=1);
  * اجرا: php examples/06-command-bus-demo.php
  *
  * @package PhpZeroDep\Examples
- * @version 0.0.1
+ * @version 0.0.2
  */
 require __DIR__ . '/../scaffolds/command-bus.php';
 require __DIR__ . '/../scaffolds/query-bus.php';

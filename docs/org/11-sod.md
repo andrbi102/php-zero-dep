@@ -1,6 +1,6 @@
 # تفکیک وظایف (SoD-1..5)
 
-> نسخه مهارت: **0.0.1** | گارد خودکار: scripts/verify_org.py
+> نسخه مهارت: **0.0.2** | گارد خودکار: scripts/verify_org.py
 
 ## پنج قاعده
 
@@ -53,4 +53,4 @@ Release Manager (T-005) هم `write-release` و هم `approve-release` دارد�
 
 ---
 
-> مهارت `php-zero-dep` — نسخه `0.0.1`
+> مهارت `php-zero-dep` — نسخه `0.0.2`

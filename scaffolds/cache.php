@@ -9,7 +9,7 @@ declare(strict_types=1);
  * بقیه با قفل مشترک منتظر نتیجه می‌مانند.
  *
  * @package PhpZeroDep\Scaffolds
- * @version 0.0.1
+ * @version 0.0.2
  * @security-level performance
  */
 final class FileCache

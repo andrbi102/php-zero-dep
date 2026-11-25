@@ -17,4 +17,4 @@ cursor (WHERE id > ?) نه OFFSET بزرگ؛ کش نتایج سنگین با Fil
 
 ---
 
-> مهارت `php-zero-dep` — نسخه `0.0.1`
+> مهارت `php-zero-dep` — نسخه `0.0.2`

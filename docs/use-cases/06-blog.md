@@ -16,4 +16,4 @@ RSS با ext-simplexml، sitemap، کش صفحات، migration از مرورگر
 
 ---
 
-> مهارت `php-zero-dep` — نسخه `0.0.1`
+> مهارت `php-zero-dep` — نسخه `0.0.2`

@@ -9,7 +9,7 @@ declare(strict_types=1);
  * برای MySQL/PostgreSQL متناسب‌سازی کنید (SERIAL/BIGSERIAL).
  *
  * @package PhpZeroDep\Scaffolds
- * @version 0.0.1
+ * @version 0.0.2
  * @security-level data
  */
 final class EventStore

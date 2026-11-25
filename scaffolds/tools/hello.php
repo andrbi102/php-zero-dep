@@ -8,7 +8,7 @@ declare(strict_types=1);
  * خروجی متنی برای LLM است؛ htmlspecialchars فقط هنگام رندر HTML به کار رود.
  *
  * @package PhpZeroDep\Scaffolds\Tools
- * @version 0.0.1
+ * @version 0.0.2
  * @security-level tool
  */
 return [

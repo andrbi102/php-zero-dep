@@ -8,7 +8,7 @@ declare(strict_types=1);
  * کلیدهای password/token/secret/key/api_key در context هرگز لاگ نمی‌شوند.
  *
  * @package PhpZeroDep\Scaffolds
- * @version 0.0.1
+ * @version 0.0.2
  * @security-level security
  */
 final class Logger

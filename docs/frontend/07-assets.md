@@ -16,4 +16,4 @@ minify دستی/اختیاری (بدون webpack)؛ تصاویر با width/heig
 
 ---
 
-> مهارت `php-zero-dep` — نسخه `0.0.1`
+> مهارت `php-zero-dep` — نسخه `0.0.2`

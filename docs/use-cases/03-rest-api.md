@@ -16,4 +16,4 @@ rate limit با RateLimiter (۴۲۹ + Retry-After)؛ مستندات با ApexDoc
 
 ---
 
-> مهارت `php-zero-dep` — نسخه `0.0.1`
+> مهارت `php-zero-dep` — نسخه `0.0.2`

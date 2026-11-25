@@ -17,4 +17,4 @@ ClamAV از طریق exec ممنوع — با HTTP API سرویس خارجی (Ht
 
 ---
 
-> مهارت `php-zero-dep` — نسخه `0.0.1`
+> مهارت `php-zero-dep` — نسخه `0.0.2`

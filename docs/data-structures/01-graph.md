@@ -17,4 +17,4 @@ Adjacency List (نه matrix) برای گراف‌های تنک: `array<string, a
 
 ---
 
-> مهارت `php-zero-dep` — نسخه `0.0.1`
+> مهارت `php-zero-dep` — نسخه `0.0.2`

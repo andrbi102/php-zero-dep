@@ -17,4 +17,4 @@ PHP 8.2+، Zero-dependency، Alpine islands) و الگوی Blink.
 
 ---
 
-> مهارت `php-zero-dep` — نسخه `0.0.1`
+> مهارت `php-zero-dep` — نسخه `0.0.2`

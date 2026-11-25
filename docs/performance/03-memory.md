@@ -18,4 +18,4 @@ NexusPHP (<2.0MB memory).
 
 ---
 
-> مهارت `php-zero-dep` — نسخه `0.0.1`
+> مهارت `php-zero-dep` — نسخه `0.0.2`

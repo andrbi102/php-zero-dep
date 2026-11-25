@@ -1,6 +1,6 @@
 # سطوح سلسله‌مراتب (۵ سطح)
 
-> نسخه مهارت: **0.0.1** | نقشه سطوح و نقش‌ها: `03-roles.md` | جزئیات هر سطح: `roles/by-level/`
+> نسخه مهارت: **0.0.2** | نقشه سطوح و نقش‌ها: `03-roles.md` | جزئیات هر سطح: `roles/by-level/`
 
 ```
 سطح ۰ — شورا (Council): ۶ ثابت + ۴ متغیر | حق وتو
@@ -55,4 +55,4 @@ Cross-cutting: Code Reviewer, Security Auditor, Doc Writer, Test Writer, Build R
 
 ---
 
-> مهارت `php-zero-dep` — نسخه `0.0.1`
+> مهارت `php-zero-dep` — نسخه `0.0.2`

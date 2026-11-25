@@ -6,7 +6,7 @@ declare(strict_types=1);
  * اعتبارسنجی ورودی — زنجیره‌ای و قابل‌گزارش
  *
  * @package PhpZeroDep\Scaffolds
- * @version 0.0.1
+ * @version 0.0.2
  * @security-level security
  */
 final class Validator

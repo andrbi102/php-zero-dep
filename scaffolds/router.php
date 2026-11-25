@@ -9,7 +9,7 @@ declare(strict_types=1);
  * مصرف‌کننده موظف است با Validator اعتبارسنجی کند (جداسازی مسیر از اعتبارسنجی).
  *
  * @package PhpZeroDep\Scaffolds
- * @version 0.0.1
+ * @version 0.0.2
  * @security-level core
  */
 final class Router

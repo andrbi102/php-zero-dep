@@ -9,7 +9,7 @@ declare(strict_types=1);
  * برای ارسال با HttpClient، هدر را به defaultHeaders اضافه کنید.
  *
  * @package PhpZeroDep\Scaffolds
- * @version 0.0.1
+ * @version 0.0.2
  * @security-level infra
  */
 final class Tracing

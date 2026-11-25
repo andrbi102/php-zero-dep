@@ -6,7 +6,7 @@ declare(strict_types=1);
  * Command Bus حداقلی (CQRS) — دست‌نویس
  *
  * @package PhpZeroDep\Scaffolds
- * @version 0.0.1
+ * @version 0.0.2
  * @security-level core
  */
 final class CommandBus

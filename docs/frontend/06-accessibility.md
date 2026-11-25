@@ -17,4 +17,4 @@ Specialist T-034). تست: صفحه‌خوان (NVDA/VoiceOver) + لینوتِس
 
 ---
 
-> مهارت `php-zero-dep` — نسخه `0.0.1`
+> مهارت `php-zero-dep` — نسخه `0.0.2`

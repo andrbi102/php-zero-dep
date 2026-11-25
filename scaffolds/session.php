@@ -6,7 +6,7 @@ declare(strict_types=1);
  * نشست امن — کوکی با HttpOnly + Secure + SameSite=Strict
  *
  * @package PhpZeroDep\Scaffolds
- * @version 0.0.1
+ * @version 0.0.2
  * @security-level security
  */
 final class SecureSession

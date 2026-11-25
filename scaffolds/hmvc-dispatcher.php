@@ -9,7 +9,7 @@ declare(strict_types=1);
  * نام action با الگوی anchored و محدود اعتبارسنجی می‌شود.
  *
  * @package PhpZeroDep\Scaffolds
- * @version 0.0.1
+ * @version 0.0.2
  * @security-level core
  */
 final class HmvcDispatcher

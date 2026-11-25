@@ -1,6 +1,6 @@
 # سرویس‌های خارجی
 
-> نسخه مهارت: **0.0.1** | ارتباط فقط از scaffolds/http-client.php
+> نسخه مهارت: **0.0.2** | ارتباط فقط از scaffolds/http-client.php
 
 ## پنج قاعده
 
@@ -50,4 +50,4 @@ echo $r['message_id'];                               // blind trust روی پا�
 
 ---
 
-> مهارت `php-zero-dep` — نسخه `0.0.1`
+> مهارت `php-zero-dep` — نسخه `0.0.2`

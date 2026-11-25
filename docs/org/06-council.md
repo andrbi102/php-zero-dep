@@ -1,6 +1,6 @@
 # شورا (۶ ثابت + ۴ متغیر)
 
-> نسخه مهارت: **0.0.1** | جلسات: council-log.md (ریشه) + council/sessions/
+> نسخه مهارت: **0.0.2** | جلسات: council-log.md (ریشه) + council/sessions/
 
 **اعضای ثابت:** Council Architect، Council Security، Council Quality، Council Performance، Council Compliance، Release Manager
 **کرسی‌های متغیر (بر اساس موضوع):** Database Lead، Crypto Specialist، Frontend Lead، Integration Lead
@@ -55,4 +55,4 @@
 
 ---
 
-> مهارت `php-zero-dep` — نسخه `0.0.1`
+> مهارت `php-zero-dep` — نسخه `0.0.2`

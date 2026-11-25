@@ -17,4 +17,4 @@ traversal گارد، الگوی VibeShell)؛ ورودی هر Tool با نوع/م
 
 ---
 
-> مهارت `php-zero-dep` — نسخه `0.0.1`
+> مهارت `php-zero-dep` — نسخه `0.0.2`
