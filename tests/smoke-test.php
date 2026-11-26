@@ -134,5 +134,56 @@ check('web-fetch cleanHtml removes header/footer/nav', !str_contains($cleaned, '
 $md = $wf->toMarkdown('<h1>T</h1><p>para <strong>b</strong></p>');
 check('web-fetch toMarkdown heading+bold', str_contains($md, '# T') && str_contains($md, '**b**'));
 
+// — v0.0.2 correction coverage: فعل‌هایی که تاکنون تست نشده بودند —
+
+// steer: اصلاح مسیر میان‌اجرا (هرگز فراخوانی جاری را قطع نمی‌کند)
+$o3 = new WorkerOrchestrator();
+$w3 = $o3->spawn(new WorkerLaunchRequest('steer task', 'ctx', 'leaf', ['write-core'], ['delegate'], 'smoke', [], 60));
+$o3->kanbanClaim($w3->workerId);
+$o3->steer($w3->workerId, 'change direction');
+check('steer enqueues message on running worker', !empty($w3->steerQueue) && $w3->steerQueue[0] === 'change direction');
+
+// handoff: انتقال فرایند با rationale اجباری + سقف ۳
+$wA = $o3->spawn(new WorkerLaunchRequest('A', 'ctx', 'leaf', ['write-core'], ['delegate'], 'smoke', [], 60));
+$wB = $o3->spawn(new WorkerLaunchRequest('B', 'ctx', 'leaf', ['write-core'], ['delegate'], 'smoke', [], 60));
+$o3->handoff($wA->workerId, $wB->workerId, 'transfer ownership');
+check('handoff increments from.handoffsGiven', $wA->handoffsGiven === 1);
+check('handoff enqueues note on target', str_contains($wB->steerQueue[count($wB->steerQueue) - 1] ?? '', 'handoff-from:'));
+$handoffEmptyRejected = false;
+try {
+    $o3->handoff($wA->workerId, $wB->workerId, '');
+} catch (Throwable $e) {
+    $handoffEmptyRejected = true;
+}
+check('handoff rejects empty rationale', $handoffEmptyRejected);
+
+// moa: اجرای متوالی چند مشاور + تجمیع‌کننده (نه رأی‌گیری)
+$moaResult = $o3->moa(
+    'arch-decision',
+    [static fn (string $t): string => 'sec', static fn (string $t): string => 'perf'],
+    static fn (array $op): string => implode('+', $op)
+);
+check('moa aggregates advisor opinions sequentially', $moaResult === 'sec+perf');
+
+// forceTerminate + continueWorker: snapshot برای از سرگیری (< ۳۶۰۰s)
+$o3->forceTerminate($w3->workerId, WorkerState::INTERRUPTED, 'manual stop');
+check('forceTerminate sets terminal state + terminatedAt', WorkerState::isTerminal($w3->state) && $w3->terminatedAt !== null);
+$o3->continueWorker($w3->workerId, 'resume');
+check('continueWorker resumes terminated snapshot -> RUNNING', $w3->state === WorkerState::RUNNING);
+
+// web-fetch filterLinks: هر دلیل رد به‌درستی برچسب می‌خورد
+$links = $wf->filterLinks(['https://other.com/x', 'mailto:a@b.com', '#frag', 'https://example.com/p'], 'example.com', 5);
+$byUrl = [];
+foreach ($links as $l) {
+    $byUrl[$l['url']] = $l['denial'];
+}
+check('filterLinks cross-domain -> DENIAL_CROSS_DOMAIN', $byUrl['https://other.com/x'] === WebFetch::DENIAL_CROSS_DOMAIN);
+check('filterLinks mailto -> DENIAL_MAILTO', $byUrl['mailto:a@b.com'] === WebFetch::DENIAL_MAILTO);
+check('filterLinks anchor -> DENIAL_ANCHOR', $byUrl['#frag'] === WebFetch::DENIAL_ANCHOR);
+check('filterLinks same-host -> null (allowed)', $byUrl['https://example.com/p'] === null);
+
+// web-fetch robotsAllows: URL بدون host -> مجاز (بدون واکشی شبکه)
+check('robotsAllows no-host url -> true (no network fetch)', $wf->robotsAllows('not-a-url') === true);
+
 echo $failed === 0 ? "\nSMOKE TEST: PASS\n" : "\nSMOKE TEST: {$failed} FAILURE(S)\n";
 exit($failed === 0 ? 0 : 1);

@@ -1,6 +1,6 @@
 # Worker Contract — Council Integration Seat (T-009)
 
-> نسخه مهارت: 0.0.1 | قالب: scaffolds/workers/_template.md | سطح ۰ — شورا
+> نسخه مهارت: 0.0.2 | قالب: scaffolds/workers/_template.md | سطح ۰ — شورا
 
 ## 1. Identity
 - role_id: **T-009** — Council Integration Seat / کرسی یکپارچه‌سازی شورا
@@ -36,3 +36,13 @@
 
 ## 8. Lifecycle
 - Requirement → Hiring → Contract → Onboarding → Execution → Review → Dissolution → Retrospective
+
+## 9. Hermes-derived orchestration primitives
+
+> منبع الگو: [`docs/references/01-hermes-agent.md`](../../docs/references/01-hermes-agent.md) | [`docs/org/12-worker-orchestration.md`](../../docs/org/12-worker-orchestration.md) | پیاده‌سازی: [`scaffolds/worker-orchestrator.php`](../worker-orchestrator.php)
+
+- **delegate:** مجاز — می‌تواند Worker فرزند با scope محدودتر spawn کند (toolsets فرزند همواره زیرمجموعهٔ toolsets والد).
+- **kanban:** claim روی کارت‌های وظیفهٔ این نقش، heartbeat پیش از هر خروجی، `request_review` برای تأیید بازبینی.
+- **review:** بازبینی خروجی توسط بازبین مستقل (SoD-5: نویسنده ≠ بازبین) پیش از پذیرش.
+- **moa:** برای تصمیمات پیچیدهٔ چندمنظری، مشورت ترکیبی چندمشاوره (تجمیع، نه رأی‌گیری).
+- **estop:** تنها T-000/T-001 استاپ سراسری می‌زنند؛ این نقش تابع است.

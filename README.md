@@ -77,11 +77,11 @@ Event Bus — همه دست‌نویس، همه خودکفا، همه با اس�
 git clone https://github.com/andrbi102/php-zero-dep.git
 ```
 
-**راه ۲ — دانلود بسته آماده (Release v0.0.1):**
+**راه ۲ — دانلود بستهٔ سورس تگ (tag v0.0.2):**
 
-از بخش
-[Releases](https://github.com/andrbi102/php-zero-dep/releases/tag/v0.0.1)
-فایل `php-zero-dep-0.0.1.zip` را بگیرید — همان بسته‌ای که در CI این مخزن
+بستهٔ سورس تگ v0.0.2 را از
+[archive/refs/tags/v0.0.2.tar.gz](https://github.com/andrbi102/php-zero-dep/archive/refs/tags/v0.0.2.tar.gz)
+بگیرید — GitHub برای هر تگ به‌صورت خودکار tar.gz/zip تولید می‌کند؛ همان سورسی که در CI این مخزن
 راستی‌آزمایی شده است.
 
 **سپس سه قدم:**

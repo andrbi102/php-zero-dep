@@ -75,3 +75,7 @@
 ---
 
 > مهارت `php-zero-dep` — نسخه `0.0.2`
+
+## مطالعهٔ موردی کامل
+
+یک مطالعهٔ ۱۰-فازی concreet (کارفرما + scaffoldها + امنیت + humanizer + skillspector) برای این دسته: [`case-studies/09-ecommerce-case-study.md`](case-studies/09-ecommerce-case-study.md).

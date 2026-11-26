@@ -16,6 +16,7 @@
 | ۰۳ | [firecrawl/firecrawl](https://github.com/firecrawl/firecrawl) | AGPL-3.0 (server) / MIT (SDKs) | واترفال موتور، حذف عناصر ناخواسته، robots.txt، فیلتر لینک، charset — در PHP خالص | [03-firecrawl.md](03-firecrawl.md) | ADR-0020 |
 | ۰۴ | [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | MIT | معماری توکن سه‌لایه، صدور دوگانه (PHP/JSON/CSS)، persistence با guard، provenance | [04-ui-ux-pro-max.md](04-ui-ux-pro-max.md) | ADR-0021 |
 | ۰۵ | [nvidia/skillspector](https://github.com/nvidia/skillspector) | Apache-2.0 | ممیزی امتیازی ۰-۱۰۰، completeness ledger، baseline suppression، قرارداد JSON | [05-skillspector.md](05-skillspector.md) | ADR-0022 |
+| ۰۶ | *(ساختار داخلی)* | — | نقشهٔ ترکیب: چگونه ۵ مرجع در یک جریان فاز به فاز می‌نشینند | [06-composition-map.md](06-composition-map.md) | — |
 
 ## قاعدهٔ الگوبرداری (صداقت مهندسی)
 

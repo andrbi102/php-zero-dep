@@ -928,13 +928,13 @@ F4 → F5 (T-074-01) → F6 (T-012-03..07) → F7 (T-011-02..09)
 4. **تولید مستندات:** همه `docs/*` از جمله `docs/org/`.
 5. **تولید Scaffolds:** شامل `scaffolds/workers/` (۷۹ فایل).
 6. **خودارزیابی:** چک‌لیست بخش ۱۴.
-7. **نسخه‌گذاری:** `v0.0.1`، `CHANGELOG.md`.
+7. **نسخه‌گذاری:** `v0.0.2`، `CHANGELOG.md`.
 
 ### خروجی نهایی مطلوب
 
 ```
-Skill v0.0.1 ready.
-Files: 228 + ADRs | Docs: 103 | Scaffolds: 79 workers + 25 code | Examples: 9
+Skill v0.0.2 ready.
+Files: 410 | ADRs: 25 | Docs: 246 | Scaffolds: 79 workers + 29 code (+1 tool) | Examples: 10
 Security audit: PASS
 PHPStan level: 8 (clean) | PSR-12: PASS
 Architectures: MVC, HMVC, Modular, Microservice, Serverless, REST,

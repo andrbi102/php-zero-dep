@@ -121,6 +121,66 @@
         "medium: پاسخ کوتاه و روشن درباره دامنه مهارت"
       ],
       "files": []
+    },
+    {
+      "id": 9,
+      "title": "ارکستراسیون چندورکر — delegate/review/denial",
+      "prompt": "برای یک ماژول پیچیده با چند زیروظیفه (طراحی API + پیاده‌سازی + امنیت) از مدل ارکستراسیون hermes استفاده کن. یک orchestrator سطح ۱ چند Worker فرزند spawn می‌کند، kanban claim می‌زند، بازبینی مستقل می‌گیرد و denial circuit breaker بعد از ۳ رد متوالی فعال شود.",
+      "expected_output": "استفاده از scaffolds/worker-orchestrator.php؛ spawn فرزند با scope محدودتر (toolsets زیرمجموعهٔ والد)؛ kanban verbs (claim/heartbeat/request_review)؛ review با بازبین مستقل (SoD-5)؛ DenialCircuitBreaker با سقف ۳؛ capability_token با پیشوند hmac:؛ steer میان‌اجرا بدون قطع فراخوانی جاری",
+      "rubric": [
+        "critical: toolsets فرزند زیرمجموعهٔ toolsets والد است (هرگز گسترده‌تر)",
+        "critical: capability_token با پیشوند hmac: صادر می‌شود",
+        "critical: denial circuit breaker بعد از ۳ رد متوالی trips می‌شود",
+        "critical: review بازبین مستقل با SoD-5 (نویسنده ≠ بازبین)",
+        "high: steer فقط روی RUNNING/STARTING مجاز است و فراخوانی جاری را قطع نمی‌کند",
+        "high: handoff با rationale اجباری و سقف ۳ به‌ازای هر فرزند",
+        "medium: continueWorker فقط روی snapshot تمام‌شده (<۳۶۰۰s) کار می‌کند"
+      ],
+      "files": []
+    },
+    {
+      "id": 10,
+      "title": "مسیریابی use-case — انتخاب اسکلت درست",
+      "prompt": "سه پروژه: (۱) فروشگاه اینترنتی با درگاه پرداخت، (۲) پلتفرم مقالات علمی با جستجو، (۳) داشبورد فین‌تک لحظه‌ای. برای هرکدام از کاتالوگ ۲۰ دسته، دسته و اسکلت‌های پیشنهادی را مشخص کن.",
+      "expected_output": "ارجاع به docs/use-cases/ و docs/catalog.md؛ نگاشت هر پروژه به یک دسته از ۲۰ (ecommerce/health/finance)؛ انتخاب scaffolds مرتبط (crypto+rate-limiter برای پرداخت، graph/search برای مقالات، serverless+tracing برای فین‌تک)؛ پروفایل متناسب با پیچیدگی",
+      "rubric": [
+        "critical: هر پروژه به یک دسته از ۲۰ دستهٔ use-case نگاشت می‌شود",
+        "critical: اسکلت‌های پیشنهادی از فهرست ۲۹ اسکلت موجود هستند",
+        "high: برای پرداخت، crypto + rate-limiter + csrf معرفی شده",
+        "high: برای جستجو، graph یا full-text مشخص شده",
+        "medium: پروفایل (solo/team/full) متناسب با پیچیدگی انتخاب شده"
+      ],
+      "files": []
+    },
+    {
+      "id": 11,
+      "title": "انسانی‌سازی متن — حذف بوی AI با حفظ واقعیت",
+      "prompt": "این متن فرضی صفحه-about یک استارتاپ را انسانی کن: «Welcome to our powerful, seamless platform that leverages cutting-edge AI to elevate your experience. As an AI, I cannot guarantee results. Sign up takes 30 seconds.» باید بوی AI برود ولی ادعای «۳۰ ثانیه ثبت‌نام» (که واقعی است) حفظ شود.",
+      "expected_output": "استفاده از scaffolds/humanizer.php؛ score>0 روی متن اصلی (بوی AI)؛ shouldPolish=true؛ polish خروجی بدون کلیشه‌های AI (powerful/seamless/leverage/as an AI)؛ claimCheck ادعای «۳۰ ثانیه» را حفظ می‌کند (ok=true، lost خالی)",
+      "rubric": [
+        "critical: کلیشه‌های AI (powerful/seamless/leverage/cutting-edge) حذف شده",
+        "critical: عبارت «As an AI» حذف شده",
+        "critical: claimCheck ادعای واقعی را lost نمی‌کند (ok=true)",
+        "high: score متن اصلی > 0 (تشخیص بوی AI)",
+        "high: متن نهایی قابل‌خواندن و طبیعی است",
+        "medium: هیچ ادعای جدید جعل‌نشده اضافه نشده"
+      ],
+      "files": []
+    },
+    {
+      "id": 12,
+      "title": "واکشی وب سبک — clean HTML + فیلتر لینک",
+      "prompt": "یک صفحهٔ HTML پر از نویز (header/nav/footer/sidebar/ad) را به متن تمیز و markdown تبدیل کن و لینک‌های آن را با دلایل رد فیلتر کن (cross-domain/mailto/anchor/file-ext/depth). بدون Composer.",
+      "expected_output": "استفاده از scaffolds/web-fetch.php؛ cleanHtml عناصر ناخواسته را حذف و متن تمیز می‌دهد؛ toMarkdown با هدینگ/بولد/لینک؛ filterLinks هر لینک را با DENIAL_* صحیح برچسب می‌زند (cross-domain→DENIAL_CROSS_DOMAIN نه NON_HTTP)؛ robotsAllows قبل از fetch بررسی می‌شود؛ throttle per-host",
+      "rubric": [
+        "critical: cleanHtml header/footer/nav/sidebar را حذف می‌کند",
+        "critical: cross-domain با DENIAL_CROSS_DOMAIN برچسب می‌خورد (نه DENIAL_NON_HTTP)",
+        "critical: mailto→DENIAL_MAILTO و anchor→DENIAL_ANCHOR",
+        "high: toMarkdown هدینگ‌ها و **bold** را تولید می‌کند",
+        "high: robotsAllows قبل از fetch بررسی می‌شود",
+        "medium: throttle per-host برای مهار نرخ اعمال شده"
+      ],
+      "files": []
     }
   ]
 }

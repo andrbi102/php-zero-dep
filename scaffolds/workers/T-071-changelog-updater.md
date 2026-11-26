@@ -1,6 +1,6 @@
 # Worker Contract — Changelog Updater (T-071)
 
-> نسخه مهارت: 0.0.1 | قالب: scaffolds/workers/_template.md | سطح ۴ — کارگران اتمیک
+> نسخه مهارت: 0.0.2 | قالب: scaffolds/workers/_template.md | سطح ۴ — کارگران اتمیک
 
 ## 1. Identity
 - role_id: **T-071** — Changelog Updater / به‌روزرسان CHANGELOG
@@ -31,3 +31,13 @@
 
 ## 8. Lifecycle
 - Requirement → Hiring → Contract → Onboarding → Execution → Review → Dissolution → Retrospective
+
+## 9. Hermes-derived orchestration primitives
+
+> منبع الگو: [`docs/references/01-hermes-agent.md`](../../docs/references/01-hermes-agent.md) | [`docs/org/12-worker-orchestration.md`](../../docs/org/12-worker-orchestration.md) | پیاده‌سازی: [`scaffolds/worker-orchestrator.php`](../worker-orchestrator.php)
+
+- **delegate:** مسدود (نقش برگ‌ی) — این نقش فرزند استخدام نمی‌کند؛ خودش مجری مستقیم وظایف اتمیک است.
+- **kanban:** claim روی کارت‌های وظیفهٔ این نقش، heartbeat پیش از هر خروجی، `request_review` برای تأیید بازبینی.
+- **review:** بازبینی خروجی توسط بازبین مستقل (SoD-5: نویسنده ≠ بازبین) پیش از پذیرش.
+- **moa:** برای تصمیمات پیچیدهٔ چندمنظری، مشورت ترکیبی چندمشاوره (تجمیع، نه رأی‌گیری).
+- **estop:** تنها T-000/T-001 استاپ سراسری می‌زنند؛ این نقش تابع است.

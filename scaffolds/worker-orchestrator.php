@@ -227,7 +227,7 @@ final class WorkerOrchestrator
         }
         // privilege containment: allowedToolsets باید زیرمجموعهٔ… والد باشد.
         // در این پیاده‌سازی تک‌مرحله‌ای، والد همان orchestrator است؛
-        // اعمال سخت‌گیرانهٔ containment در پیاده‌سازی چندسطحی оставлен به caller.
+        // اعمال سخت‌گیرانهٔ containment در پیاده‌سازی چندسطحی واگذار شده به caller.
         $this->spawnCounter++;
         $workerId = sprintf('W-%d-%s', $this->spawnCounter, $req->correlationId);
         $token = $this->issueCapabilityToken($workerId, $req->contractVersion);

@@ -25,8 +25,10 @@
 import argparse
 import json
 import os
+import re
 import subprocess
 import sys
+from pathlib import Path
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SEVERITY_WEIGHT = {"critical": 50, "high": 25, "medium": 10, "low": 5}
@@ -141,6 +143,40 @@ def check_version_consistency() -> dict:
             "version_file": v_file, "version_rules": v_rules, "log": ""}
 
 
+def check_content_completeness() -> dict:
+    """درگاه content-completeness (الگوبرداری از skillspector completeness ledger).
+
+    دو راستی‌آزمایی:
+      CMP-001: هر قرارداد Worker (scaffolds/workers/T-NNN-*.md) باید بخش ۹ داشته باشد.
+      CMP-002: هر سند مرجع (docs/references/0X-*.md) لینک‌های ADR را به فایل موجود بدهد.
+    """
+    issues = []
+    # CMP-001: بخش ۹ در همهٔ قراردادهای Worker
+    contracts_dir = Path(REPO) / "scaffolds" / "workers"
+    contracts = sorted(contracts_dir.glob("T-*-*.md"))
+    missing_s9 = [p.name for p in contracts
+                  if not re.search(r"^## 9\.", p.read_text(encoding="utf-8"), re.MULTILINE)]
+    if missing_s9:
+        issues.append({"id": "CMP-001", "severity": "high",
+                       "msg": f"{len(missing_s9)} worker contract(s) missing section 9: "
+                              + ", ".join(missing_s9[:3]) + ("..." if len(missing_s9) > 3 else "")})
+    # CMP-002: لینک‌های ADR در مراجع به فایل موجود می‌رسند
+    refs_dir = Path(REPO) / "docs" / "references"
+    adr_dir = Path(REPO) / "ADR"
+    broken_adr = []
+    for r in sorted(refs_dir.glob("0*-*.md")):
+        txt = r.read_text(encoding="utf-8")
+        for m in re.finditer(r"ADR/(\d{4}-[^)\s]+\.md)", txt):
+            if not (adr_dir / m.group(1)).is_file():
+                broken_adr.append(f"{r.name} -> ADR/{m.group(1)}")
+    if broken_adr:
+        issues.append({"id": "CMP-002", "severity": "medium",
+                       "msg": f"{len(broken_adr)} broken ADR link(s) in references: "
+                              + ", ".join(broken_adr[:3]) + ("..." if len(broken_adr) > 3 else "")})
+    return {"gate": "content-completeness", "ok": not issues, "exit": 1 if issues else 0,
+            "issues": issues, "contracts_checked": len(contracts), "log": ""}
+
+
 def compute_score(gates: list[dict]) -> int:
     total = 0
     for g in gates:
@@ -169,6 +205,7 @@ def main() -> int:
         check_smoke(),
         check_byte_ceiling(),
         check_version_consistency(),
+        check_content_completeness(),
     ]
     all_issues = [i for g in gates for i in g["issues"]]
     score = compute_score(gates)

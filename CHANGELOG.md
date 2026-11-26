@@ -68,6 +68,39 @@
 - `council-log.md`: جلسهٔ v0.0.2. `lessons-learned.md`: L-005 (الگوبرداری AGPL بدون کپی کد)، L-006 (شمارش‌ها دست‌نخورده).
 - `tests/smoke-test.php`: ۴ اسکلت جدید + ۲۳ چک رفتار (ارکستراسیون/humanizer/web-fetch/design-tokens).
 
+### Fixed — اصلاحات پس از انتشار اولیهٔ v0.0.2 (۲۰۲۶-۱۱-۲۶)
+
+این اصلاحات همراه با انتقال برچسب `v0.0.2` اعمال شد (v0.0.2 اولیه ناقص/ناسازگار بود):
+
+- **A1:** حذف کلمهٔ روسی آلوده‌کنندهٔ «оставлен» در کامنت `scaffolds/worker-orchestrator.php`.
+- **A2:** لایهٔ `component` در `design-tokens.php` اکنون در هر سه فرمت صدور (PHP/JSON/CSS)
+  ظاهر می‌شود — قبلاً تعریف ولی unreachable بود.
+- **A3:** افزودن `DENIAL_CROSS_DOMAIN` در `web-fetch.php`؛ لینک cross-domain دیگر
+  به‌اشتباه `DENIAL_NON_HTTP` نمی‌گیرد.
+- **A4:** داک `moa` به‌روز شد: اجرای **متوالی** در PHP خالص (نه «ThreadPool موازی»).
+- **B5+6:** بخش ۹ (ارکستراسیون hermes-derived) به همهٔ ۷۹ قرارداد Worker + ۷۹ کارت
+  by-role اضافه شد (قالب وعده می‌داد ولی کارت‌ها فاقدش بودند). delegate بر اساس سطح:
+  council/senior مجاز، برگ‌ی مسدود.
+- **B6:** ۱۷۳ فایل جا‌مانده روی `0.0.1` (۷۹ ورکر + ۷۹ by-role + ۱۰ by-phase + پراکنده)
+  به `0.0.2` هم‌تراز شد؛ هاردکد `generate_role_cards.py` اصلاح و کارت‌ها بازتولید شد.
+- **B7:** عنوان scaffolds در SKILL.md از «۳۰» به «۲۹» اصلاح شد (دوبارشماری).
+- **B8:** مسیر stale در `PHP_DEV_ENV_SETUP.md` به مکان واقعی به‌روز شد.
+- **C9:** `check-links.sh` اجرا شد؛ ارجاع جعلی `phpdet` (crates.io ۴۰۴) حذف و با
+  `mago` (ابزار واقعی AST/PHP به Rust) ادغام شد؛ ۵۷ لینک سبز (۲۰۲۶-۱۱-۲۶).
+- **C10:** `tests/smoke-test.php` با ۱۱ چک جدید (steer/handoff/moa/forceTerminate/
+  continueWorker/filterLinks/robotsAllows) گسترش یافت (مجموعاً ۴۸ چک).
+- **C11:** ۴ سناریوی eval جدید (id ۹–۱۲) برای ارکستراسیون، مسیریابی use-case،
+  humanizer و web-fetch (`evals/evals.json`: ۸→۱۲ سناریو).
+
+### Added — تکمیل‌های پس از انتشار (D12–D15)
+
+- **D12:** `RELEASE.md` (یادداشت انتشار v0.0.2 با آمار، نصب، راستی‌آزمایی، اصلاحات).
+- **D13:** درگاه `content-completeness` در `skill_score.py` (CMP-001: هر قرارداد بخش ۹
+  دارد؟ CMP-002: هر مرجع به ADR موجود لینک می‌دهد؟) — ممیزی اکنون ۶ درگاهی.
+- **D14:** `docs/references/06-composition-map.md` — نقشهٔ ترکیب ۵ مرجع در یک جریان فاز.
+- **D15:** `docs/use-cases/case-studies/` — ۲۰ مطالعهٔ موردی کامل ۱۰-فازی (یک به‌ازای
+  هر دستهٔ ۰۷..۲۶) با کارفرمای فرضی concreet، پیوند به scaffold/Worker/humanizer/skillspector.
+
 ### Notes
 
 - نسخه مهارت: **0.0.2**. نسخهٔ مدل سازمانی: **2.0** (دست‌نخورده).

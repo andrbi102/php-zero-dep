@@ -23,6 +23,7 @@ final class WebFetch
 
     /** دلایل رد لینک (firecrawl crawler.ts DenialReason). */
     public const DENIAL_NON_HTTP = 'DENIAL_NON_HTTP';
+    public const DENIAL_CROSS_DOMAIN = 'DENIAL_CROSS_DOMAIN';
     public const DENIAL_SOCIAL = 'DENIAL_SOCIAL';
     public const DENIAL_FILE_EXT = 'DENIAL_FILE_EXT';
     public const DENIAL_ANCHOR = 'DENIAL_ANCHOR';
@@ -302,7 +303,7 @@ final class WebFetch
             }
             $host = $parts['host'] ?? '';
             if ($host !== $baseHost) {
-                $result[] = ['url' => $href, 'denial' => self::DENIAL_NON_HTTP]; // cross-domain
+                $result[] = ['url' => $href, 'denial' => self::DENIAL_CROSS_DOMAIN];
                 continue;
             }
             // social host

@@ -130,6 +130,13 @@ final class DesignTokens
                 $out .= "define('TOKEN_{$const}', " . var_export($val, true) . ");\n";
             }
         }
+        foreach (self::COMPONENT as $comp => $props) {
+            foreach ($props as $name => $ref) {
+                $const = strtoupper(preg_replace('/[^a-z0-9]+/i', '_', 'component_' . $comp . '_' . $name) ?? '');
+                $val = $this->resolve($ref);
+                $out .= "define('TOKEN_{$const}', " . var_export($val, true) . ");\n";
+            }
+        }
         return $out;
     }
 
@@ -147,6 +154,13 @@ final class DesignTokens
                 $tokens['semantic'][$cat . '-' . $name] = ['$value' => $this->resolve($ref), '$type' => $cat === 'color' ? 'color' : 'dimension'];
             }
         }
+        foreach (self::COMPONENT as $comp => $props) {
+            foreach ($props as $name => $ref) {
+                $rv = $this->resolve($ref);
+                $type = str_starts_with($rv, '#') ? 'color' : (preg_match('/^[\d.]+(rem|px|em|%)$/', $rv) ? 'dimension' : 'string');
+                $tokens['component'][$comp . '-' . $name] = ['$value' => $rv, '$type' => $type];
+            }
+        }
         return json_encode($tokens, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
     }
 
@@ -156,6 +170,12 @@ final class DesignTokens
         foreach (self::SEMANTIC as $cat => $map) {
             foreach ($map as $name => $ref) {
                 $var = '--' . str_replace('_', '-', $cat . '-' . $name);
+                $out .= "  {$var}: " . $this->resolve($ref) . ";\n";
+            }
+        }
+        foreach (self::COMPONENT as $comp => $props) {
+            foreach ($props as $name => $ref) {
+                $var = '--component-' . $comp . '-' . $name;
                 $out .= "  {$var}: " . $this->resolve($ref) . ";\n";
             }
         }

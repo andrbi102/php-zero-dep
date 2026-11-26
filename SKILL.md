@@ -220,7 +220,7 @@ PHP 8.3 داره؛ دیتابیس MySQL.» اجرای مهارت:
 | کاتالوگ مخازن تأییدشده | `docs/catalog.md` (بازبینی سه‌ماهه: `scripts/check-links.sh`) |
 | سند مبدأ کامل | `SPEC.md` |
 
-### scaffolds/ (۳۰ اسکلت + tools + workers) — هرکدام چه می‌کند
+### scaffolds/ (۲۹ اسکلت + tools + workers) — هرکدام چه می‌کند
 
 | دسته | فایل‌ها |
 |------|---------|

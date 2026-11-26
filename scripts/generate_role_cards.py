@@ -111,10 +111,16 @@ def main():
             "| " + " | ".join(r) + " |" for r in contract["task_rows"]
         )
         perms = ", ".join(f"`{p}`" for p in role["permissions"])
+        has_delegate = role["level_name"] in ("council", "senior")
+        delegate_fa = (
+            "مجاز — می‌تواند Worker فرزند با scope محدودتر spawn کند"
+            if has_delegate else
+            "مسدود (نقش برگ‌ی — مجری مستقیم وظایف اتمیک)"
+        )
 
         card = f"""# کارت نقش — {role['fa']} ({rid})
 
-> نسخه مهارت: 0.0.1 | منبع حقیقت: `RULES.json` | قرارداد کامل: `scaffolds/workers/{matches[0].name}`
+> نسخه مهارت: 0.0.2 | منبع حقیقت: `RULES.json` | قرارداد کامل: `scaffolds/workers/{matches[0].name}`
 
 ## شناسنامه
 
@@ -153,9 +159,17 @@ def main():
 Requirement → Hiring → Contract → Onboarding → Execution → Review → Dissolution → Retrospective
 راهنمای کامل با نمونه: `docs/org/08-lifecycle.md` | قالب قرارداد: `scaffolds/workers/_template.md`
 
+## ارکستراسیون (بخش ۹ قرارداد کامل)
+
+- **delegate:** {delegate_fa}
+- چهار بدیههٔ دیگر — `kanban` / `review` / `moa` / `estop` — در قرارداد کامل بخش ۹ آمده‌اند.
+- الگوی کامل: `docs/references/01-hermes-agent.md` | `docs/org/12-worker-orchestration.md`
+
+→ قرارداد کامل: `scaffolds/workers/{matches[0].name}` § ۹
+
 ---
 
-> مهارت `php-zero-dep` — نسخه `0.0.1`
+> مهارت `php-zero-dep` — نسخه `0.0.2`
 """
         out = OUT_DIR / f"{rid}.md"
         out.write_text(card, encoding="utf-8")
